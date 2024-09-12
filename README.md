@@ -43,9 +43,9 @@ The results are stored in a file named Positions.txt
 
 Below are the console output for testcase2 (Testcase1 will give 0 as output)
 
-![alt text](https://github.com/Anugvc/satellite-position-search/blob/master/image-1.png?raw=true)
+![alt text](https://github.com/Anugvc/satellite-position-search/blob/main/image-1.png?raw=true)
 
-![alt text](https://github.com/Anugvc/satellite-position-search/blob/master/image-2.png?raw=true)
+![alt text](https://github.com/Anugvc/satellite-position-search/blob/main/image-2.png?raw=true)
 
 
 Also. the library directory  (Lib/Windows/) needs to be added to PATH variable and system reboot required. 
