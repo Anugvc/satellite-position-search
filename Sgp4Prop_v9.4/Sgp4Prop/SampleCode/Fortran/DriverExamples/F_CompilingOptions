@@ -1,0 +1,47 @@
+# This file contains the common Fortran compiling options (Intel Fortran specific). 
+# This file is referenced in the Makefile files. 
+#
+# For OneAPI to work, you first need to run the following commands:
+# source /opt/intel/oneapi/compiler/2021.3.0/env/vars.sh intel64
+
+# Common Parameters
+MKDIR             = mkdir -p
+GENERAL           = -c -u -r8 -i4 -fpp -fp-model strict
+MULTITHREAD_FLAGS = -reentrancy threaded -threads
+OPENMP            = -fopenmp
+COMPILER_DIR      = /opt/intel/oneapi/compiler/latest/linux
+SOURCE            = ./src
+BINDIR            = ./bin
+OBJDIR            = ./obj
+MODDIR            = ./mod
+WRAPPERS          = ../wrappers
+SUFFIX            = 
+
+# This is where the Astro Standards libraries are located.
+ASTRO_LIB_DIR     = ../../../Lib
+
+# Turn off specific warning messages
+DISABLE = -diag-disable=7841,8577,8291,8293,6717
+
+# Set variables
+COMPILER       = $(COMPILER_DIR)/bin/intel64/ifort
+COMPILER_FLAGS = -m64 -D_LINUX64 $(GENERAL) $(MULTITHREAD_FLAGS) $(OPENMP) $(DISABLE) -module $(MODDIR)
+LINK_FLAGS     = -m64 -D_LINUX64 -V $(MULTITHREAD_FLAGS) $(OPENMP) 
+LIBS           = -L$(COMPILER_DIR)/compiler/lib/intel64 -L$(ASTRO_LIB_DIR)
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+	SUFFIX = _mac
+    MULTITHREAD_FLAGS = -threads
+    COMPILER_DIR = /opt/intel/oneapi/compiler/latest/mac
+    COMPILER_FLAGS = -m64 -D_INTELMAC $(GENERAL) $(MULTITHREAD_FLAGS) $(OPENMP) $(DISABLE) -module $(MODDIR)
+    LINK_FLAGS     = -m64 -D_INTELMAC -V $(MULTITHREAD_FLAGS) $(OPENMP) 
+endif
+
+# Create subdirectories used by compiler/linker
+$(shell ${MKDIR} $(OBJDIR))
+$(shell ${MKDIR} $(BINDIR))
+$(shell ${MKDIR} $(MODDIR))
+
+# VPATH specifies a list of directories that "make" should search
+VPATH = $(SOURCE):$(WRAPPERS)

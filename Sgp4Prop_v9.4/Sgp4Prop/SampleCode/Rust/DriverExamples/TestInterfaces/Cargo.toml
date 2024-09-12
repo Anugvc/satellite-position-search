@@ -1,0 +1,7 @@
+[package]
+name = "TestInterfaces"
+version = "0.1.0"
+authors = ["Astro_Standards"]
+edition = "2021"
+build = "src/build.rs"
+

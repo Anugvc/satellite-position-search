@@ -1,0 +1,27 @@
+var annotated_dup =
+[
+    [ "Aof", "d3/de3/class_aof.html", "d3/de3/class_aof" ],
+    [ "AstroFunc", "de/d68/class_astro_func.html", "de/d68/class_astro_func" ],
+    [ "Bam", "db/d36/class_bam.html", "db/d36/class_bam" ],
+    [ "BatchDC", "d6/d3f/class_batch_d_c.html", "d6/d3f/class_batch_d_c" ],
+    [ "Combo", "d1/d20/class_combo.html", "d1/d20/class_combo" ],
+    [ "DllMain", "dd/d38/class_dll_main.html", "dd/d38/class_dll_main" ],
+    [ "ElComp", "da/d87/class_el_comp.html", "da/d87/class_el_comp" ],
+    [ "ElOps", "d7/d64/class_el_ops.html", "d7/d64/class_el_ops" ],
+    [ "EnvConst", "d2/d77/class_env_const.html", "d2/d77/class_env_const" ],
+    [ "ExtEphem", "d7/d62/class_ext_ephem.html", "d7/d62/class_ext_ephem" ],
+    [ "Fov", "d2/def/class_fov.html", "d2/def/class_fov" ],
+    [ "Lamod", "d8/de1/class_lamod.html", "d8/de1/class_lamod" ],
+    [ "Obs", "dc/d4d/class_obs.html", "dc/d4d/class_obs" ],
+    [ "ObsOps", "db/d3a/class_obs_ops.html", "db/d3a/class_obs_ops" ],
+    [ "Rotas", "d3/d79/class_rotas.html", "d3/d79/class_rotas" ],
+    [ "Saas", "d3/d18/class_saas.html", "d3/d18/class_saas" ],
+    [ "SatState", "d4/ddf/class_sat_state.html", "d4/ddf/class_sat_state" ],
+    [ "Sensor", "d7/daf/class_sensor.html", "d7/daf/class_sensor" ],
+    [ "Sgp4Prop", "df/d47/class_sgp4_prop.html", "df/d47/class_sgp4_prop" ],
+    [ "SpProp", "d7/d95/class_sp_prop.html", "d7/d95/class_sp_prop" ],
+    [ "SpVec", "d4/d14/class_sp_vec.html", "d4/d14/class_sp_vec" ],
+    [ "TimeFunc", "db/d09/class_time_func.html", "db/d09/class_time_func" ],
+    [ "Tle", "db/db6/class_tle.html", "db/db6/class_tle" ],
+    [ "Vcm", "d2/df9/class_vcm.html", "d2/df9/class_vcm" ]
+];

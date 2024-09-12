@@ -1,0 +1,1692 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:x="urn:schemas-microsoft-com:office:excel"
+      xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+        <title>IL2 Jira</title>
+        <style type="text/css">
+         table {
+             mso-displayed-decimal-separator:"\.";
+             mso-displayed-thousand-separator:"\,";
+         }
+         body
+         {
+             margin: 0px;
+             font-size: 12px;
+             font-family: Arial, sans-serif;
+             color:black;
+         }
+
+        </style>
+        <META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+        <!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+        <!--
+             Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+             since Excel does not use or save the css files it is hardcoded here.
+           -->
+        <style>
+         @page
+         {
+             mso-page-orientation:landscape;
+             margin:.25in .25in .5in .25in;
+             mso-header-margin:.5in;
+             mso-footer-margin:.25in;
+             mso-footer-data:"&R&P of &N";
+             mso-horizontal-page-align:center;
+             mso-vertical-page-align:center;
+         }
+
+         td.issuekey,
+         td.issuetype,
+         td.status {
+             mso-style-parent: "";
+             mso-number-format: \@;
+             text-align: left;
+         }
+         br
+         {
+             mso-data-placement:same-cell;
+         }
+
+         td
+         {
+             vertical-align: top;
+         }
+        </style>
+
+        <!--[if gte mso 9]><xml>
+            <x:ExcelWorkbook>
+            <x:ExcelWorksheets>
+            <x:ExcelWorksheet>
+            <x:Name>general_report</x:Name>
+            <x:WorksheetOptions>
+            <x:Print>
+            <x:ValidPrinterInfo/>
+            </x:Print>
+            </x:WorksheetOptions>
+            </x:ExcelWorksheet>
+            </x:ExcelWorksheets>
+            </x:ExcelWorkbook>
+            </xml><![endif]-->
+    </head>
+    <body>
+
+        <table border="1">
+            <tr bgcolor="#0747a6" height="30">
+                <td colspan="5">
+                    <img src="https://jira.il2.dso.mil/images/jira-generic.png" width="57" height="30" border="0" alt="IL2 Jira">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <a href="https://jira.il2.dso.mil/issues/?jql=project+%3D+%22Astrodynamics+Standards%22+and+fixVersion+%3D+8.4" data-testid="filterNameHref">IL2 Jira</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    Displaying <strong>78</strong> issues at <strong>22/Aug/22 10:34 AM</strong>.
+                </td>
+            </tr>
+        </table>
+
+        
+
+
+                            <issuetable-web-component data-content="issues">
+                <table id="issuetable"  border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                            Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                            Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                            Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                            Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                            Description
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow188475" rel="188475" data-issuekey="ASTROSTDS-911" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-911" href="https://jira.il2.dso.mil/browse/ASTROSTDS-911">ASTROSTDS-911</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Allow DMA key mode to work in ExtEphem as well
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow187977" rel="187977" data-issuekey="ASTROSTDS-909" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-909" href="https://jira.il2.dso.mil/browse/ASTROSTDS-909">ASTROSTDS-909</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Planets&#39; pos/vel always calculated with JPL ephemeris
+    </p>
+</td>
+                                            <td class="description">      Planets&#39; pos/vel always calculated with JPL ephemeris. Turned this off to save processing time when not needed.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow187947" rel="187947" data-issuekey="ASTROSTDS-908" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-908" href="https://jira.il2.dso.mil/browse/ASTROSTDS-908">ASTROSTDS-908</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Sensor location data used in Aof, Fov, Saas is in EFG &amp; geodetic lat/lon  but was treated as ECR, astro lat/lon 
+    </p>
+</td>
+                                            <td class="description">      Sensor data used in Aof, Fov, Saas... is in different frames (such as EFG, LLH, and XYZ @ specific time) but usually converted to EFG and geodetic lat/lon. However, the sensor location in sensor library is stored as ECR and astronomical lat/lon. The difference between EFG and ECR is polar wander. Without, polar wander (available in timing constant file), they are the same. <br/>
+<br/>
+To compute sensor location correctly, the sensor library needs to add another option which allows sensor location input in EFG &amp; geodetic lat/lon. In the sensor library code, this new EFG and geodetic lat/lon data needs to be handled correctly.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow187195" rel="187195" data-issuekey="ASTROSTDS-907" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-907" href="https://jira.il2.dso.mil/browse/ASTROSTDS-907">ASTROSTDS-907</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Need to fix GenDllWrappers to handle character::a(512) syntax
+    </p>
+</td>
+                                            <td class="description">      SpPropWrapper.cs, line 560, SpGet4pAll method, 19th argument should be &quot;byte[]&quot;, not &quot;out char&quot;.<br/>
+<br/>
+In Fortran, the old way of declaring a character array:<br/>
+<br/>
+character(512)::a<br/>
+<br/>
+New way:<br/>
+<br/>
+character::a(512)<br/>
+<br/>
+This was a result of the BindC changes.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow187237" rel="187237" data-issuekey="ASTROSTDS-906" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-906" href="https://jira.il2.dso.mil/browse/ASTROSTDS-906">ASTROSTDS-906</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Need to add logic to GenDllWrappers to handle &amp; for functions
+    </p>
+</td>
+                                            <td class="description">      The &quot;&amp;&quot; symbol is used to tell Fortran that the statement continues to the next line.  GenDllWrappers handles this for subroutines (i.e.. ComboGet7pAll), but not functions (i.e..  ObsOpsDllExports.f90 -&gt; AnglesOnlyToPosVel()<br/>
+<br/>
+ <br/>
+<br/>
+This was due to the BindC changes
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow184251" rel="184251" data-issuekey="ASTROSTDS-905" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-905" href="https://jira.il2.dso.mil/browse/ASTROSTDS-905">ASTROSTDS-905</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                FOV&#39;s sensor location in Lat/Lon/Height no longer works
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow183965" rel="183965" data-issuekey="ASTROSTDS-904" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-904" href="https://jira.il2.dso.mil/browse/ASTROSTDS-904">ASTROSTDS-904</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Build SP NUPRO
+    </p>
+</td>
+                                            <td class="description">      Need the Nu Pro version back so contractors can integrate with programs such as STK without approval for the official SP library
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow183427" rel="183427" data-issuekey="ASTROSTDS-901" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-901" href="https://jira.il2.dso.mil/browse/ASTROSTDS-901">ASTROSTDS-901</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Merge bindC branch with current baseline so the code can compile with gfortran
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow183323" rel="183323" data-issuekey="ASTROSTDS-899" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-899" href="https://jira.il2.dso.mil/browse/ASTROSTDS-899">ASTROSTDS-899</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Create Astro Swagger project
+    </p>
+</td>
+                                            <td class="description">      Swagger UI is part of a Java Springboot application that builds a webpage with interactive components into the code.  For example, it will build a GUI in the browser that will allow you to enter a TLE in Sgp4Prop and return propagation results in a text box in the browser.<br/>
+<br/>
+Because it runs as a REST server, users can run REST calls to the server and get responses via a webpage. <br/>
+<br/>
+I built a test build for this.   It&#39;s a Maven project, so it requires Maven to be in your path in order to compile.  It also has a static copy of the services and utilities from the driverexamples_java repo.   And has a static copy of the JNA wrappers.  It only has a few API&#39;s as a test.  Theoretically, all the Astro Standards API&#39;s could be autogenerated, and this can serve as a SOA (Service Oriented Architecture) and provided as a Docker container to the customers.  Maven is on the Linux build server in /opt/apache-maven....<br/>
+<br/>
+Ideally, this should be checked into GitLab and autobuilt from TeamCity and dynamically retrieving the services, utilities, and wrappers files.   This should be easy to do.   It should also automatically run.  If the code changes, the Springboot application should be shutdown, new files copied to the run directory (e.g.. /opt/astro_swagger), then restarted.<br/>
+<br/>
+Also, the swagger code should also be automatically generated.  This could be done in GenDllWrappers, where code will inspect the Java wrappers and programmatically generate the swagger code, then redeploy (e.g.. /opt/astro_swagger).  This will be difficult.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow181702" rel="181702" data-issuekey="ASTROSTDS-897" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-897" href="https://jira.il2.dso.mil/browse/ASTROSTDS-897">ASTROSTDS-897</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Create template sorting routine in DllMain so those same sorting can be shared among appropriate libraries
+    </p>
+</td>
+                                            <td class="description">      Create QuickSortIterative() in DllMain and use it in Sensor, ExtEphem, Tle, Vcm, and SpVec libraries
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow181565" rel="181565" data-issuekey="ASTROSTDS-896" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-896" href="https://jira.il2.dso.mil/browse/ASTROSTDS-896">ASTROSTDS-896</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Modify Rust driver examples to use LD_LIBRARY_PATH
+    </p>
+</td>
+                                            <td class="description">      The Rust driver examples have a build.rs file that has a hardcoded path to the Astro Standards libraries.  Figure out how to change this to use the LD_LIBRARY_PATH or PATH environment variable instead.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow181277" rel="181277" data-issuekey="ASTROSTDS-895" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-895" href="https://jira.il2.dso.mil/browse/ASTROSTDS-895">ASTROSTDS-895</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                All xxxGetLoaded() functions don&#39;t work or take a very long time when loaded records are large (&gt;1 million) when order value is anything but 9 (quickest)
+    </p>
+</td>
+                                            <td class="description">      The current &quot;selection&quot; sort algorithm doesn&#39;t work well when the user loads a large number of records (tles, vcms, obs...) and call the xxxGetLoaded() with &quot;order&quot; value other than 9 to retrieve the records&#39; keys (satKeys, obsKeys, ...). 
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow180958" rel="180958" data-issuekey="ASTROSTDS-882" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-882" href="https://jira.il2.dso.mil/browse/ASTROSTDS-882">ASTROSTDS-882</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Create fortranexes build on TeamCity
+    </p>
+</td>
+                                            <td class="description">      * Move contents of the fortranexes repository to fortrandlls.<br/>
+ * Build scripts to compile and deploy to the file share.<br/>
+ * Build a TeamCity configuration to run the build scripts and trigger off of Git checkin.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow181030" rel="181030" data-issuekey="ASTROSTDS-879" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-879" href="https://jira.il2.dso.mil/browse/ASTROSTDS-879">ASTROSTDS-879</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Need to fix C# driver examples to run out-of-the-box
+    </p>
+</td>
+                                            <td class="description">      There&#39;s something wrong with the C# driver examples.   TeamCity runs them just fine, but what TeamCity does is run a script that sets up a build environment to run all the driver examples.  Whereas, the users are just given runExample.bat.   This batch script builds Astro.NetAssemblies, then builds the example (e.g.. Sgp4Prop).  But it complains that the wrappers are missing.   The script also asks to pass the path to the libraries when the PATH environment variable is already set.   
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow180221" rel="180221" data-issuekey="ASTROSTDS-878" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-878" href="https://jira.il2.dso.mil/browse/ASTROSTDS-878">ASTROSTDS-878</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix bug in Obs library when an obs was loaded successfully but reported as non existence when trying to retrieve
+    </p>
+</td>
+                                            <td class="description">      This is a special case when an obs was loaded successfully and returned an obsKey (the obs has satellite number = 0 but siteTag /= 0) but when trying to retrieve this obs data via its obsKey, the Obs dll returns an error which states that &quot;unable to locate obsKey in the OBS binary tree&quot;
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow180123" rel="180123" data-issuekey="ASTROSTDS-877" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-877" href="https://jira.il2.dso.mil/browse/ASTROSTDS-877">ASTROSTDS-877</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Change BatchDC&#39;s acceptance output format in C-driver example code
+    </p>
+</td>
+                                            <td class="description">      The &quot;no. res&quot; may not have enough space to print out that whole value - change its format from %3d to %6d and change RMS&#39;s format from %4d to %6.1f 
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow179148" rel="179148" data-issuekey="ASTROSTDS-867" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-867" href="https://jira.il2.dso.mil/browse/ASTROSTDS-867">ASTROSTDS-867</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                SP2EGP throwing memory access violation
+    </p>
+</td>
+                                            <td class="description">      This is only occurring in driverexamples_java, in the SP2EGP driver example.   In SP2EGP.java file, there&#39;s a call to JnaBatchDC.SpToCsv() that throws the memory access violation error.<br/>
+<br/>
+A crash occurs in this driver example for JNI, regardless of bit size and operating system.  So, its assumed the culprit is the SpToCsv() function.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow173227" rel="173227" data-issuekey="ASTROSTDS-865" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-865" href="https://jira.il2.dso.mil/browse/ASTROSTDS-865">ASTROSTDS-865</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add new common date time format &quot;yyyy-MM-dd HH:mm:ss.SSS&quot; to WinWin output data grid
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow172893" rel="172893" data-issuekey="ASTROSTDS-864" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-864" href="https://jira.il2.dso.mil/browse/ASTROSTDS-864">ASTROSTDS-864</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Change GeoModel type for SP object from allocatable to pointer to save memory space
+    </p>
+</td>
+                                            <td class="description">      Each SP object should point to the geo model records instead of storing them itself. This helps reducing memory space to store all that geo model data.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow172561" rel="172561" data-issuekey="ASTROSTDS-863" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-863" href="https://jira.il2.dso.mil/browse/ASTROSTDS-863">ASTROSTDS-863</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add Joel Castle&#39;s documentation on Conda
+    </p>
+</td>
+                                            <td class="description">      See Joel&#39;s documentation in:<br/>
+<br/>
+AVAC: K:\users\Castle\AstroStdsWithConda or<br/>
+<br/>
+NIPR: \\tdka-fs-nas-01p\s3_6\S36Z\A236ZS\Castle_S36Z_Shared\AstroStdsWithConda
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow172558" rel="172558" data-issuekey="ASTROSTDS-862" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-862" href="https://jira.il2.dso.mil/browse/ASTROSTDS-862">ASTROSTDS-862</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                @see tag not being built for &quot;see ELSET_KEYMODE_?&quot; in DllMain
+    </p>
+</td>
+                                            <td class="description">      There&#39;s &quot;see ELSET_KEYMODE_?&quot; in SetElsetKeyMode function but @see tag is not being created.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow171981" rel="171981" data-issuekey="ASTROSTDS-861" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-861" href="https://jira.il2.dso.mil/browse/ASTROSTDS-861">ASTROSTDS-861</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add TeamCity configuration to build libraries on the Mac build server.
+    </p>
+</td>
+                                            <td class="description">      Need to create a configuration in TeamCity that builds the fortrandlls repository on the Mac build server.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow170721" rel="170721" data-issuekey="ASTROSTDS-860" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-860" href="https://jira.il2.dso.mil/browse/ASTROSTDS-860">ASTROSTDS-860</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                GenDllWrappers is no longer creating correct wrappers
+    </p>
+</td>
+                                            <td class="description">      Example JnaDllMain.java goes well beyond 600 lines of code when all previous versions were around 300.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow170519" rel="170519" data-issuekey="ASTROSTDS-859" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-859" href="https://jira.il2.dso.mil/browse/ASTROSTDS-859">ASTROSTDS-859</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add Dependency Walker to the distribution
+    </p>
+</td>
+                                            <td class="description">      The new Dependency Walker at [https://github.com/lucasg/Dependencies] doesn&#39;t give false positives for missing DLLs.   And oftentimes, this is the reason why our users have problems using the Astro Standards libraries.  This application is only for Windows.  Linux and Mac users have &quot;nm&quot; and &quot;ldd&quot; that come with the OS.<br/>
+<br/>
+The GitHub link shows the 64-bit executable download, but also comes with the source.  It would be good if we can build the 64-bit and 32-bit versions on the AVAC via TeamCity and have it automatically copied to the distribution folder.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow170516" rel="170516" data-issuekey="ASTROSTDS-858" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-858" href="https://jira.il2.dso.mil/browse/ASTROSTDS-858">ASTROSTDS-858</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix32BitFortranLibFiles.ps1 is throwing a NullPointerException in TeamCity
+    </p>
+</td>
+                                            <td class="description">      &quot;Build Fortran DLLs in Windows - 32-bit&quot; configuration in TeamCity is failing.  The build.log shows a NullPointerException stack trace when the Fix32BitFortranLibFiles.ps1 script is run.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow169184" rel="169184" data-issuekey="ASTROSTDS-857" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-857" href="https://jira.il2.dso.mil/browse/ASTROSTDS-857">ASTROSTDS-857</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Getting BatchDC compile error on Mac
+    </p>
+</td>
+                                            <td class="description">      Line 537 in FortranSource/BatchDC/DcTree.f90: The argument to C_LOC must be a variable with the POINTER or TARGET attribute<br/>
+<br/>
+ 
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow169363" rel="169363" data-issuekey="ASTROSTDS-856" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-856" href="https://jira.il2.dso.mil/browse/ASTROSTDS-856">ASTROSTDS-856</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Create stand-alone Fortran executable for BatchDC
+    </p>
+</td>
+                                            <td class="description">      The purpose of a stand-alone Fortran executable is to remove any dependency of the program on any Intel&#39;s provided DLLs/SOs. The Fortran executable is compiled and linked statically to Intel&#39;s DLLs/SOs and therefore has better chance to run successfully on systems that failed the drivers/Astro Standards DLLs/SOs fashion.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow169362" rel="169362" data-issuekey="ASTROSTDS-855" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-855" href="https://jira.il2.dso.mil/browse/ASTROSTDS-855">ASTROSTDS-855</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Create stand-alone Fortran executable for ROTAS
+    </p>
+</td>
+                                            <td class="description">      The purpose of a stand-alone Fortran executable is to remove any dependency of the program on any Intel&#39;s provided DLLs/SOs. The Fortran executable is compiled and linked statically to Intel&#39;s DLLs/SOs and therefore has better chance to run successfully on systems that failed the drivers/Astro Standards DLLs/SOs fashion.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow169360" rel="169360" data-issuekey="ASTROSTDS-853" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-853" href="https://jira.il2.dso.mil/browse/ASTROSTDS-853">ASTROSTDS-853</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                 Sgp4Prop/VERDICT/Run_VERDICT.bat missing type4
+    </p>
+</td>
+                                            <td class="description">      In the vandv repository, the Sgp4Prop/VERDICT/Run_VERDICT.bat script is different from the Sgp4Prop/VERDICT/Run_VERDICT.sh script.  The bat  script is missing all the tests for type4.  Need to add those in.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow169359" rel="169359" data-issuekey="ASTROSTDS-852" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-852" href="https://jira.il2.dso.mil/browse/ASTROSTDS-852">ASTROSTDS-852</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Sgp4Prop.c still references &quot;C_&quot; file names
+    </p>
+</td>
+                                            <td class="description">      Need to remove &quot;C_&quot; in file names referenced in Sgp4Prop.c in driverexamples_c repository.  This is causing vandv to fail because the baseline files do not have the &quot;C_&quot; in the file names, so validation fails.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow169291" rel="169291" data-issuekey="ASTROSTDS-851" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-851" href="https://jira.il2.dso.mil/browse/ASTROSTDS-851">ASTROSTDS-851</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                TeamCity not reporting errors in Run_VERDICT.bat script
+    </p>
+</td>
+                                            <td class="description">      In vandv repo,  there are several Run_VERDICT.bat script where each call to the verdict command being executed can be returning an error code, but the error code is not being caught to relay it back up the call chain.   This actually happened when the &quot;C_&quot; was removed from the base line files, and verdict was erroring because it could not find the file, but the batch script continued as if nothing happened and no error in TeamCity was reported.  It worked in Linux because the error was caught by the script in TeamCity.  This can&#39;t be done in a batch script.  The batch script needs to either have a bunch of GoTo statements or have an error trap after each call to verdict.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow168533" rel="168533" data-issuekey="ASTROSTDS-850" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-850" href="https://jira.il2.dso.mil/browse/ASTROSTDS-850">ASTROSTDS-850</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix bug in WinWin when &quot;Show Satellite Info&quot;/&quot;Show Sensor Info&quot; doesn&#39;t show actual satellite/sensor data
+    </p>
+</td>
+                                            <td class="description">      &quot;Show Satellite Info&quot; and &quot;Show Sensor Info&quot; don&#39;t show actual satellite/sensor information of the first one in the loaded satellite/sensor list when the current cursor was initially placed on top of the list
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow167347" rel="167347" data-issuekey="ASTROSTDS-848" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-848" href="https://jira.il2.dso.mil/browse/ASTROSTDS-848">ASTROSTDS-848</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                V&amp;V failing on Linux in TeamCity
+    </p>
+</td>
+                                            <td class="description">      V&amp;V failing on Linux in TeamCity.  For both 32 and 64 bit.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow167242" rel="167242" data-issuekey="ASTROSTDS-846" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-846" href="https://jira.il2.dso.mil/browse/ASTROSTDS-846">ASTROSTDS-846</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                32-bit C driver example crashing for Sgp4Prop
+    </p>
+</td>
+                                            <td class="description">      32-bit C driver example crashing
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow167221" rel="167221" data-issuekey="ASTROSTDS-845" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-845" href="https://jira.il2.dso.mil/browse/ASTROSTDS-845">ASTROSTDS-845</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                check JNI for memory leaks
+    </p>
+</td>
+                                            <td class="description">      The C JNI code may need the env-&gt;DeleteLocalRef() function calls to remove local references to clean up memory.  Use the jni-example repository and call the functions in an infinite loop with a 1 second delay and check if memory starts to grow.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow167217" rel="167217" data-issuekey="ASTROSTDS-844" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-844" href="https://jira.il2.dso.mil/browse/ASTROSTDS-844">ASTROSTDS-844</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                SpProp C driver example throwing an error
+    </p>
+</td>
+                                            <td class="description">      SpProp C driver example throwing an error stating cannot open &quot;&quot;.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow167215" rel="167215" data-issuekey="ASTROSTDS-843" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-843" href="https://jira.il2.dso.mil/browse/ASTROSTDS-843">ASTROSTDS-843</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                SrvRotas throwing exception 
+    </p>
+</td>
+                                            <td class="description">      SrvRotas is throwing an exception because it cannot find JnaObs.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow144824" rel="144824" data-issuekey="ASTROSTDS-841" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-841" href="https://jira.il2.dso.mil/browse/ASTROSTDS-841">ASTROSTDS-841</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add Gabbard plot tool to WinWin
+    </p>
+</td>
+                                            <td class="description">      Add Gabbard plot tool to WinWin
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow144823" rel="144823" data-issuekey="ASTROSTDS-840" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-840" href="https://jira.il2.dso.mil/browse/ASTROSTDS-840">ASTROSTDS-840</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add waterfall tool to WinWin
+    </p>
+</td>
+                                            <td class="description">      Add waterfall tool to WinWin
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow144608" rel="144608" data-issuekey="ASTROSTDS-838" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-838" href="https://jira.il2.dso.mil/browse/ASTROSTDS-838">ASTROSTDS-838</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Remove deprecated &quot;-I&quot; option from all Python driver examples
+    </p>
+</td>
+                                            <td class="description">      The libraries only require a PATH or LD_LIBRARY_PATH to locate the Astro libraries.  But the Python driver examples and wrappers still use the &quot;-I&quot; parameter to pass the path to the libraries.  Need to remove this requirement:<br/>
+ * Change GenDllWrappers to remove the &quot;fullpath&quot; parameter.<br/>
+ * Remove &quot;-I&quot; argument passed in the runExample.bat and runExample.sh scripts<br/>
+ * Change Python driver example source files to remove the full path argument.<br/>
+ * Change the runExample scripts to check to make sure the libraries are in the path.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow144372" rel="144372" data-issuekey="ASTROSTDS-836" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-836" href="https://jira.il2.dso.mil/browse/ASTROSTDS-836">ASTROSTDS-836</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Replace remnant of SatKeyToSatNum() calls with SatNumOf() in all Java driver example code
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow144361" rel="144361" data-issuekey="ASTROSTDS-835" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-835" href="https://jira.il2.dso.mil/browse/ASTROSTDS-835">ASTROSTDS-835</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Need to replace ObsKeyToSatNum() with SatNumFrObsKey() in all driver example code
+    </p>
+</td>
+                                            <td class="description">      The ObsKeyToSatNum() method retrieves satellite number from the obsKey itself. This will not work with obsKey in DMA mode and therefore needs to be replaced with the newly added SatNumFrObsKey() method.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow144360" rel="144360" data-issuekey="ASTROSTDS-834" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-834" href="https://jira.il2.dso.mil/browse/ASTROSTDS-834">ASTROSTDS-834</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Need to replace ObsKeyToSenNum() with SenNumFrObsKey() in all driver example code
+    </p>
+</td>
+                                            <td class="description">      The ObsKeyToSenNum() method retrieves sensor number from the obsKey itself. This will not work with obsKey in DMA mode and therefore needs to be replaced with the newly added SenNumFrObsKey() method.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow143985" rel="143985" data-issuekey="ASTROSTDS-833" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-833" href="https://jira.il2.dso.mil/browse/ASTROSTDS-833">ASTROSTDS-833</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add SenNumFrObsKey() to replace ObsKeyToSenNum() which won&#39;t work with the new obsKey DMA
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143984" rel="143984" data-issuekey="ASTROSTDS-832" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-832" href="https://jira.il2.dso.mil/browse/ASTROSTDS-832">ASTROSTDS-832</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add SatNumFrObsKey() to replace ObsKeyToSatNum() which won&#39;t work with the new obsKey DMA
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143959" rel="143959" data-issuekey="ASTROSTDS-831" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-831" href="https://jira.il2.dso.mil/browse/ASTROSTDS-831">ASTROSTDS-831</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add GetObsKeyMode() to Obs library to support DMA mode
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143958" rel="143958" data-issuekey="ASTROSTDS-830" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-830" href="https://jira.il2.dso.mil/browse/ASTROSTDS-830">ASTROSTDS-830</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add SetObsKeyMode() to Obs library to support DMA mode
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143957" rel="143957" data-issuekey="ASTROSTDS-829" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-829" href="https://jira.il2.dso.mil/browse/ASTROSTDS-829">ASTROSTDS-829</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix ExtEphGetLoaded()/sorting of keys in DMA mode
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143956" rel="143956" data-issuekey="ASTROSTDS-828" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-828" href="https://jira.il2.dso.mil/browse/ASTROSTDS-828">ASTROSTDS-828</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix VcmGetLoaded()/sorting of keys in DMA mode
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143955" rel="143955" data-issuekey="ASTROSTDS-827" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-827" href="https://jira.il2.dso.mil/browse/ASTROSTDS-827">ASTROSTDS-827</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix SpVecGetLoaded()/sorting of keys in DMA mode
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143953" rel="143953" data-issuekey="ASTROSTDS-826" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-826" href="https://jira.il2.dso.mil/browse/ASTROSTDS-826">ASTROSTDS-826</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix TleGetLoaded()/sorting of keys in DMA mode
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143761" rel="143761" data-issuekey="ASTROSTDS-825" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-825" href="https://jira.il2.dso.mil/browse/ASTROSTDS-825">ASTROSTDS-825</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Modify FortranDll Makefile files so they can also be used on macOS
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143760" rel="143760" data-issuekey="ASTROSTDS-824" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-824" href="https://jira.il2.dso.mil/browse/ASTROSTDS-824">ASTROSTDS-824</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Modify GenDllWrappers/JenDllWrappers so the generated wrappers can also be used on macOS
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143759" rel="143759" data-issuekey="ASTROSTDS-823" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-823" href="https://jira.il2.dso.mil/browse/ASTROSTDS-823">ASTROSTDS-823</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix &quot;multiple definition&quot; compiling error in C drivers when using latest gcc on Linux/Cygwin
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143757" rel="143757" data-issuekey="ASTROSTDS-822" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-822" href="https://jira.il2.dso.mil/browse/ASTROSTDS-822">ASTROSTDS-822</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix all warnings in C driver examples when using the latest gcc compiler on Linux/Cygwin
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow143300" rel="143300" data-issuekey="ASTROSTDS-819" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-819" href="https://jira.il2.dso.mil/browse/ASTROSTDS-819">ASTROSTDS-819</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add TestInterface functions to Julia driver examples
+    </p>
+</td>
+                                            <td class="description">      The TestInterface function is a single function that contains all parameter types used by Astro Standards.  Adding this to the driver examples will give users a single function to look at for examples on how to handle parameter types.<br/>
+<br/>
+There are also examples of TestInterface2 and TestInterface3 in Octave and Tcl.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow142892" rel="142892" data-issuekey="ASTROSTDS-811" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-811" href="https://jira.il2.dso.mil/browse/ASTROSTDS-811">ASTROSTDS-811</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Create runExample scripts for Rust
+    </p>
+</td>
+                                            <td class="description">      These scripts are to be run by the RunDriverExamples.ps1 script from TeamCity and allows users a simple way to run driver examples with simple error messages, like add XXX to path.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow143027" rel="143027" data-issuekey="ASTROSTDS-809" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-809" href="https://jira.il2.dso.mil/browse/ASTROSTDS-809">ASTROSTDS-809</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                FuncPrototype class in GenDllWrappers has hardcoded index to words
+    </p>
+</td>
+                                            <td class="description">      The code in FuncProtype class, processAFortranRoutine has hardcoded logic to compare the first 8 characters has &quot;function&quot; or first 10 characters is &quot;subroutine&quot;.  That means there can&#39;t be whitespaces in front of those words or it will break.   Same with FilePrototype class, readFile method.  It will also break if there&#39;s more than 1 space between the work &quot;function&quot; and the function name.   Or if the spaces were tabs.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow143015" rel="143015" data-issuekey="ASTROSTDS-808" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-808" href="https://jira.il2.dso.mil/browse/ASTROSTDS-808">ASTROSTDS-808</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                fix min/max errors in C drivers
+    </p>
+</td>
+                                            <td class="description">      Need to fix the min/max #define macros.   The problem with macros is that they are really not much more than an automated text replacement mechanism that alters the source code before the &quot;actual&quot; compiler gets to see it. They do _not_ respect things like namespaces or scope in general, because they operate at a level where these concepts don&#39;t even exist yet.<br/>
+<br/>
+Example from {*}https://dustri.org/b/min-and-max-macro-considered-harmful.html{*},<br/>
+<br/>
+int main() {<br/>
+<br/>
+    int a = 1, b = 2;<br/>
+<br/>
+    printf (&quot;%d\n&quot;, min (a, b));<br/>
+<br/>
+    printf (&quot;a=%d, b=%d\n\n&quot;, a, b);<br/>
+<br/>
+    printf (&quot;%d\n&quot;, min (a++, b++));<br/>
+<br/>
+    printf (&quot;a=%d, b=%d\n\n&quot;, a, b);<br/>
+<br/>
+}<br/>
+<br/>
+This will print the following because a mathematical expression was passed to the &quot;macro&quot;, which the compiler &quot;copies&quot; to each location the macro is run.<br/>
+<br/>
+1 <br/>
+<br/>
+a=1, b=2<br/>
+<br/>
+2 <br/>
+<br/>
+a=3, b=3
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow142480" rel="142480" data-issuekey="ASTROSTDS-802" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-802" href="https://jira.il2.dso.mil/browse/ASTROSTDS-802">ASTROSTDS-802</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                In DMA mode, trying to remove satKey with an inappropriate method can cause crash
+    </p>
+</td>
+                                            <td class="description">      This can happen if the user calls an inappropriate method. For example, passing DMA satKey that belongs to TLE/SGP4 to SpRemoveSat() can cause crash
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow141988" rel="141988" data-issuekey="ASTROSTDS-801" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-801" href="https://jira.il2.dso.mil/browse/ASTROSTDS-801">ASTROSTDS-801</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                XP wasn&#39;t reporting ndot/2 in the TLE
+    </p>
+</td>
+                                            <td class="description">      XP wasn&#39;t reporting ndot/2 in the TLE.  This was due to XP using SGP4 parameters that weren&#39;t defined.  Luckily ndot/2 was calculated elsewhere.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow142070" rel="142070" data-issuekey="ASTROSTDS-799" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-799" href="https://jira.il2.dso.mil/browse/ASTROSTDS-799">ASTROSTDS-799</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Modify createNewVersion.sh to handle merge conflicts
+    </p>
+</td>
+                                            <td class="description">      Currently, the createNewVersion.sh deletes the directory that it&#39;s about to create from a clone, which would delete all edits from resolving merge conflicts.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow141851" rel="141851" data-issuekey="ASTROSTDS-798" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-798" href="https://jira.il2.dso.mil/browse/ASTROSTDS-798">ASTROSTDS-798</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Get matlab working in Linux? Add to matlab readme notes
+    </p>
+</td>
+                                            <td class="description">      One user uses MatLab on Linux.  This is their experience:<br/>
+<br/>
+I finally got the AstroStandards libraries to load in MATLAB. Thank you for your help in resolving the issue with loading AstroStandards libraries. Below is a summary of the required steps to get the libraries to load.<br/>
+<br/>
+ <br/>
+ # Modify .h files to include definition of __int64<br/>
+<br/>
+//Directives for Windows PC and UNIX platforms<br/>
+<br/>
+#ifdef _WIN32<br/>
+<br/>
+   #include &lt;windows.h&gt;<br/>
+<br/>
+   //#define STDCALL __stdcall // Remember to use this __stdcall in VC++ 6.0<br/>
+<br/>
+   #define STDCALL __cdecl   // Remember to select this __cdecl in VS 2008<br/>
+<br/>
+   // windows platforms has __int64 type - 64-bit integer<br/>
+<br/>
+#else<br/>
+<br/>
+   #include &lt;dlfcn.h&gt;<br/>
+<br/>
+   #define STDCALL<br/>
+<br/>
+   // unix-family platforms doesn&#39;t support __int64, therefore need to define it here<br/>
+<br/>
+   typedef long long __int64;<br/>
+<br/>
+#endif<br/>
+<br/>
+ <br/>
+<br/>
+ <br/>
+<br/>
+// Use 64-bit integer for fortran addresses<br/>
+<br/>
+typedef __int64 fAddr;<br/>
+ # Prior to executing MATLAB, define LD_LIBRARY_PATH. Appending this path once MATLAB is running doesn’t work.<br/>
+<br/>
+export LD_LIBRARY_PATH=/opt/mts/MTS_SDK/Main/Matlab/Lib64 //This is where they put the AS libraries<br/>
+<br/>
+       2. In MATLAB, add paths for Lib64 and Include directories<br/>
+<br/>
+folderName = fullfile(pwd,&#39;Matlab&#39;);<br/>
+<br/>
+addpath(fullfile(folderName,&#39;Lib64&#39;));<br/>
+<br/>
+addpath(fullfile(folderName,&#39;Include&#39;));  <br/>
+<br/>
+       3. In MATLAB, Load Library with option to generate prototype file. MATLAB will write both the prototype file and thunk file in the local directory. Without this option, the thunk file is written to /tmp which has the noexec option set.<br/>
+<br/>
+[notfound,warnings]=loadlibrary(&#39;libastrofunc&#39;,&#39;M_AstroFuncDll.h&#39;,’mfilename’,’libastrofuncproto’)<br/>
+<br/>
+This results in creation of libastrofuncproto.m and libastrofunc_thunk_glxa64.so and the library being loaded into MATLAB.<br/>
+<br/>
+       4. Move prototype file and thunk file to Prototypes directory. In MATLAB add path for Prototypes directory.<br/>
+<br/>
+addpath(fullfile(folderName,&#39;Prototypes&#39;));<br/>
+<br/>
+       5. For future executions, MATLAB can load the library using the prototype file. For compatibility with existing code, an alias for the library needs to be defined.<br/>
+<br/>
+[notfound,warnings]=loadlibrary(&#39;libastrofunc&#39;,@libastrofunc,’alias’,’AstroFunc’)<br/>
+<br/>
+At this point, the .h files are no longer required. The prototype and thunk files are required. And presumably a compiler would no longer be required.<br/>
+<br/>
+ <br/>
+<br/>
+On a side note, I think I discovered why MATLAB requires a compiler (gcc) when loading a shared library with a .h file. The process of generating the prototype and thunk files is done via Perl script, which requires a .i file as input. This .i file is generated when the compiler preprocesses the .h file. When using loadlibrary, MATLAB needs a thunk file to interface with the shared library. If the thunk file does not exist, MATLAB loadlibrary will generate a thunk file in the temporary directory. The prototype.pl Perl script first generates C code for the thunk file, which is then compiled into a shared library (.dll, .so, or .dylib depending on the OS).
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow141849" rel="141849" data-issuekey="ASTROSTDS-797" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-797" href="https://jira.il2.dso.mil/browse/ASTROSTDS-797">ASTROSTDS-797</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                apple support for C headers
+    </p>
+</td>
+                                            <td class="description">      Tom,<br/>
+<br/>
+ <br/>
+<br/>
+Could you make changes to the JenDllWrappers? We need to add this entry to the C header files (highlighted) for macOS. This is an example for the DllMain library.<br/>
+<br/>
+ <br/>
+<br/>
+// Provide the path to the dll/so<br/>
+<br/>
+#ifdef _WIN32<br/>
+<br/>
+  #define DllMainDll &quot;DllMain.dll&quot;<br/>
+<br/>
+*#elif __APPLE__*<br/>
+<br/>
+  *#define DllMainDll &quot;libdllmain.dylib&quot;*<br/>
+<br/>
+#else<br/>
+<br/>
+  #define DllMainDll &quot;libdllmain.so&quot;<br/>
+<br/>
+#endif<br/>
+<br/>
+ <br/>
+<br/>
+Thanks,<br/>
+<br/>
+Dinh
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow141387" rel="141387" data-issuekey="ASTROSTDS-796" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-796" href="https://jira.il2.dso.mil/browse/ASTROSTDS-796">ASTROSTDS-796</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add logic to add vcruntime140_1.dll to only V&amp;V
+    </p>
+</td>
+                                            <td class="description">      Tried adding logic to Run_VERDICT.bat, but it failed.  Need to fix it for the next release
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow141335" rel="141335" data-issuekey="ASTROSTDS-795" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-795" href="https://jira.il2.dso.mil/browse/ASTROSTDS-795">ASTROSTDS-795</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Move JNI dependent libraries to c_jni_exports\lib
+    </p>
+</td>
+                                            <td class="description">      The ucrtbased.dll and vcruntime140d.dll libraries are only required by JNI, so move them from fortrandlls\Dependencies to c_jni_exports\lib\Win32 and Win64 folders.   Note: this folders are dynamically created, so the build scripts and/or repositories will need to be changed to handle these two static libraries. <br/>
+<br/>
+Or put them in a separate folder, and only add them to the PATH if they aren&#39;t in the user&#39;s path.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow110350" rel="110350" data-issuekey="ASTROSTDS-784" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-784" href="https://jira.il2.dso.mil/browse/ASTROSTDS-784">ASTROSTDS-784</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                The output ephemeris file generated by SatStateGenEphFile() has error since the time format only shows the milliseconds
+    </p>
+</td>
+                                            <td class="description">      Due to the limitation of the time format in the file, only the whole milliseconds are shown which may no be exactly the same as the time stored in the SP buffer.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow110308" rel="110308" data-issuekey="ASTROSTDS-782" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-782" href="https://jira.il2.dso.mil/browse/ASTROSTDS-782">ASTROSTDS-782</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add DMA mode to external ephemeris
+    </p>
+</td>
+                                            <td class="description"></td>
+                    </tr>
+
+
+                <tr id="issuerow109645" rel="109645" data-issuekey="ASTROSTDS-778" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-778" href="https://jira.il2.dso.mil/browse/ASTROSTDS-778">ASTROSTDS-778</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Create icon for WinWin
+    </p>
+</td>
+                                            <td class="description">      Create a set of icons for the WinWin.  It should appear in the upper left corner of the app and when the app is minimized, the icon will appear in the Windows tray.  So, there should be a standard set of sizes and resolutions.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow96818" rel="96818" data-issuekey="ASTROSTDS-743" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-743" href="https://jira.il2.dso.mil/browse/ASTROSTDS-743">ASTROSTDS-743</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Auto generate Tcl wrappers
+    </p>
+</td>
+                                            <td class="description">      Modify GenDllWrappers to generate the *.c and *.h files for TCL driver examples.  Currently, the *.c and *.h files were created manually and are in driverexamples_tcl/lib_tcl.<br/>
+ * makesos needs to be modified to build all the .so files<br/>
+ * Tcl_conf.c and Tcl_conf.h are the only source files that need to be checked-in, all other *.c and *.h files should be auto-generated by GenDllWrappers.<br/>
+<br/>
+To make them more compatible with all other driverexample folders, modify the directory structure.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow90162" rel="90162" data-issuekey="ASTROSTDS-700" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-700" href="https://jira.il2.dso.mil/browse/ASTROSTDS-700">ASTROSTDS-700</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Remove &quot;VB_&quot; prefix from VB driver examples
+    </p>
+</td>
+                                            <td class="description">      driverexamples_c\examples directory have several directories named for the components (i.e.. Aof, BatchDC, Combo, etc), but they are all prefixed with &quot;C_&quot;.  This makes scripts to have to accommodate this.  Fortran driver examples use &quot;F_&quot; prefix, and VB has &quot;VB_&quot; prefix.  So all the scripts that deploy to the distro and/or run examples, need if/then/else logic to accommodate all these prefixes.  These prefixes do not exist for any other language (i.e.. for C#, the Sgp4Prop driver example is just Sgp4Prop.  Same for Java, Python, and Matlab).  Also, driverexamples_data has &quot;Sgp4Prop&quot;.  These files are not in the same directory, so prefixing is no longer necessary (they used to be in a single repository called &quot;driverexamples&quot;)
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow90153" rel="90153" data-issuekey="ASTROSTDS-696" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-696" href="https://jira.il2.dso.mil/browse/ASTROSTDS-696">ASTROSTDS-696</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Update all driver code that extracts sensor numbers, satellite numbers from obsKey
+    </p>
+</td>
+                                            <td class="description">      When DMA mode applies to obs, the data extract from the obsKey won&#39;t be longer accurate and therefore all driver code needs to be rewritten<br/>
+<br/>
+Need to implement the call to the newly added library functions SatNumFrObsKey() and SenNumFrObsKey()
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow89109" rel="89109" data-issuekey="ASTROSTDS-681" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-681" href="https://jira.il2.dso.mil/browse/ASTROSTDS-681">ASTROSTDS-681</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Remove &quot;goto&quot; logic from MSISE_90.f90
+    </p>
+</td>
+                                            <td class="description">      It&#39;s bad programming practice to use &quot;goto&quot; statements.  Having several goto commands may lead the code to become difficult to maintain, difficult to follow, confusing, and prone to errors - i.e.. if the destination line changes, label changes to code will break.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow87695" rel="87695" data-issuekey="ASTROSTDS-670" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-670" href="https://jira.il2.dso.mil/browse/ASTROSTDS-670">ASTROSTDS-670</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Investigate how JNI can be faster for 2D arrays
+    </p>
+</td>
+                                            <td class="description">      JNI seems to be significantly slower than JNA for 2D arrays.  Testing is done using the GenEphem call in Sgp4, in the issa-test repo. # Check if using 1-to-2/2-to-1 dimensional array conversions would help. # See [https://stackoverflow.com/questions/7699020/what-makes-jni-calls-slow] # See Get/Release PrimitiveArrayCritical method calls would work [https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/functions.html#GetPrimitiveArrayCritical_ReleasePrimitiveArrayCritical] # See NewDirectByteBuffer method would work: [https://docs.oracle.com/javase/8/docs/technotes/guides/jni/spec/functions.html#NewDirectByteBuffer] # Read &quot;Best Practices for Using JNI&quot;: [https://developer.ibm.com/articles/j-jni/] 
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow87649" rel="87649" data-issuekey="ASTROSTDS-624" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-624" href="https://jira.il2.dso.mil/browse/ASTROSTDS-624">ASTROSTDS-624</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add CYGWIN compatibility
+    </p>
+</td>
+                                            <td class="description">      Currently, the libraries will not work in cygwin.  Cygwin is a very popular tool to have applications run in a Unix-like environment, but running on a Windows platform.Even though “#ifdef __WIN32” to “#if defined(_WIN32) || defined(___CYGWIN__)” was changed in services/ and wrappers/, it still does not work.Scott Gray tested.  He got all Dll&#39;s loaded, but the following error is printed:      0 [main] C_Sgp4Prop 573 cygwin_exception::open_stackdumpfile: Dumping stack trace to C_Sgp4Prop.exe.stackdumpError executing C_Sgp4Prop.exe with exit code of: 35584
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow87594" rel="87594" data-issuekey="ASTROSTDS-569" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-569" href="https://jira.il2.dso.mil/browse/ASTROSTDS-569">ASTROSTDS-569</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                gcc on Linux gives warnings for string overflows
+    </p>
+</td>
+                                            <td class="description">      gcc on Linux gives warnings for string overflows.  We are writing a char[512] to a char[512] variable.sprintf(dest, &quot;something %s something&quot;, source);dest[512] and source[512]; 
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow87568" rel="87568" data-issuekey="ASTROSTDS-543" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-543" href="https://jira.il2.dso.mil/browse/ASTROSTDS-543">ASTROSTDS-543</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Run VB driver examples from TeamCity
+    </p>
+</td>
+                                            <td class="description">      VB driver examples have never been setup to run from TeamCity.  May require .Net framework to be installed on the Windows build server.
+  </td>
+                    </tr>
+
+
+                <tr id="issuerow87546" rel="87546" data-issuekey="ASTROSTDS-521" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-521" href="https://jira.il2.dso.mil/browse/ASTROSTDS-521">ASTROSTDS-521</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Build Astro Standards on a Mac
+    </p>
+</td>
+                                            <td class="description">      Modify or add Makefile file(s) to build Astro Standards libraries on Mac and ensure the dylib files are built successfully.
+  </td>
+                    </tr>
+                </tbody>
+    </table>
+    </issuetable-web-component>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#f5f5f5" colspan="5"><font size="1">
+        Generated at Mon Aug 22 16:34:06 UTC 2022 by Zach Slatton using Jira 8.20.10#820010-sha1:ace47f9899e9ee25d7157d59aa17ab06aee30d3d.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>

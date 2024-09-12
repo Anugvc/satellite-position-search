@@ -6,6 +6,7 @@ typedef struct satepos {
     int minuteOfDay;
     //td::tm time;
     int satNum;
+    char satName[50];
 
     int mse; // Minutes since epoch
     double d50UTC; // datestring from 1950 UTC
@@ -27,7 +28,9 @@ typedef struct satepos {
 typedef struct Satellite {
     //std::string name;
     //elsetrec satrec;
-    char satName[10];
+    char satName[50];
+    int satNum;
+
 }satellite_st;
 
 

@@ -1,0 +1,1441 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:x="urn:schemas-microsoft-com:office:excel"
+      xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+        <title>IL2 Jira</title>
+        <style type="text/css">
+         table {
+             mso-displayed-decimal-separator:"\.";
+             mso-displayed-thousand-separator:"\,";
+         }
+         body
+         {
+             margin: 0px;
+             font-size: 12px;
+             font-family: Arial, sans-serif;
+             color:black;
+         }
+
+        </style>
+        <META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+        <!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+        <!--
+             Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+             since Excel does not use or save the css files it is hardcoded here.
+           -->
+        <style>
+         @page
+         {
+             mso-page-orientation:landscape;
+             margin:.25in .25in .5in .25in;
+             mso-header-margin:.5in;
+             mso-footer-margin:.25in;
+             mso-footer-data:"&R&P of &N";
+             mso-horizontal-page-align:center;
+             mso-vertical-page-align:center;
+         }
+
+         td.issuekey,
+         td.issuetype,
+         td.status {
+             mso-style-parent: "";
+             mso-number-format: \@;
+             text-align: left;
+         }
+         br
+         {
+             mso-data-placement:same-cell;
+         }
+
+         td
+         {
+             vertical-align: top;
+         }
+        </style>
+
+        <!--[if gte mso 9]><xml>
+            <x:ExcelWorkbook>
+            <x:ExcelWorksheets>
+            <x:ExcelWorksheet>
+            <x:Name>general_report</x:Name>
+            <x:WorksheetOptions>
+            <x:Print>
+            <x:ValidPrinterInfo/>
+            </x:Print>
+            </x:WorksheetOptions>
+            </x:ExcelWorksheet>
+            </x:ExcelWorksheets>
+            </x:ExcelWorkbook>
+            </xml><![endif]-->
+    </head>
+    <body>
+
+        <table border="1">
+            <tr bgcolor="#0747a6" height="30">
+                <td colspan="6">
+                    <img src="https://jira.il2.dso.mil/images/jira-generic.png" width="57" height="30" border="0" alt="IL2 Jira">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <a href="https://jira.il2.dso.mil/issues/?jql=project+%3D+%22Astrodynamics+Standards%22+and+fixVersion+%3D9.3" data-testid="filterNameHref">IL2 Jira</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    Displaying <strong>65</strong> issues at <strong>19/Jan/24 1:04 PM</strong>.
+                </td>
+            </tr>
+        </table>
+
+        
+
+
+                            <issuetable-web-component data-content="issues">
+                <table id="issuetable"  border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                            Key
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                            Status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                            Issue Type
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                            Summary
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                            Description
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                            Fix Version/s
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow360843" rel="360843" data-issuekey="ASTROSTDS-1325" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1325" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1325">ASTROSTDS-1325</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add new option - maximum number of iterations - to the list of EGP control parameters
+    </p>
+</td>
+                                            <td class="description">      For some hard to solve BatchDC cases, increasing maximum number of iterations may help improving the fit. 
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow359428" rel="359428" data-issuekey="ASTROSTDS-1323" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1323" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1323">ASTROSTDS-1323</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Check classi into gitlab
+    </p>
+</td>
+                                            <td class="description">      Wrote a C++ program to change classification of satellites in a csv based on the original csv file.<br/>
+<br/>
+Need to check it into GitLab as a standalone application, but not part of a release.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow358375" rel="358375" data-issuekey="ASTROSTDS-1321" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1321" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1321">ASTROSTDS-1321</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add new method BatchDCSetCtrlArr() to BatchDC library
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow358374" rel="358374" data-issuekey="ASTROSTDS-1320" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1320" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1320">ASTROSTDS-1320</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add new method BatchDCGetCtrlArr() to BatchDC library
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow358749" rel="358749" data-issuekey="ASTROSTDS-1319" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1319" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1319">ASTROSTDS-1319</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add new method IomodDC() to BatchDC library
+    </p>
+</td>
+                                            <td class="description">      This new method allows doing DC without an input elset. The provided observations will be used in initial orbit determination to come up with an initial elset first. That elset then will be used in the DC. This new method therefore doesn&#39;t require an input elset.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow356817" rel="356817" data-issuekey="ASTROSTDS-1318" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1318" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1318">ASTROSTDS-1318</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix bug in Sgp4ReepochTLE() - rev number is off by one
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow356348" rel="356348" data-issuekey="ASTROSTDS-1317" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1317" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1317">ASTROSTDS-1317</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Create infrastructure for JNI to run on a Mac
+    </p>
+</td>
+                                            <td class="description">      To do this, the following needs to be done:<br/>
+ * Modify the c_jni_exports/Makefile to be Mac and Linux compatible.<br/>
+ * Modify the c_jni_exports/MakeAll.sh to be Mac and Linux compatible.<br/>
+ * Modify the BuildCJNIExports.sh script to be Mac and Linux compatible.<br/>
+ * Create a Build C JNI pipeline in Jenkins for the Mac.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow356343" rel="356343" data-issuekey="ASTROSTDS-1316" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1316" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1316">ASTROSTDS-1316</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Add an error check to CreateProxyKey() when calling GetMeanKep() may return an error
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow356032" rel="356032" data-issuekey="ASTROSTDS-1314" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1314" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1314">ASTROSTDS-1314</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add Astro Swagger to the distribution
+    </p>
+</td>
+                                            <td class="description">      Add Astro Swagger as part of the release.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow353816" rel="353816" data-issuekey="ASTROSTDS-1313" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1313" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1313">ASTROSTDS-1313</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Made huge improvement to ObsSort() method in Obs library
+    </p>
+</td>
+                                            <td class="description">      With about 1.5 millions of observations, here are the improvements:<br/>
+ * In non DMA mode, new ObsSort() runs about 60 times faster<br/>
+ * In DMA mode, new ObsSort() runs about 30 times faster
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow353814" rel="353814" data-issuekey="ASTROSTDS-1312" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1312" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1312">ASTROSTDS-1312</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add a new mode which allows returning actual key instead of 0 (duplication key)
+    </p>
+</td>
+                                            <td class="description">      When adding a sensor/satellite/observation, if the data was already loaded, the program returns a key = 0 to signify that that sensor/satellite/observation was already loaded in memory. The new mode should allow the actual key be returned instead of zero.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow352536" rel="352536" data-issuekey="ASTROSTDS-1311" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1311" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1311">ASTROSTDS-1311</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix bug in obs library when obs selection criteria is used with DMA mode
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.2,                     9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow351243" rel="351243" data-issuekey="ASTROSTDS-1310" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1310" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1310">ASTROSTDS-1310</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add new method BachDCInitSatObsKeys() to BatchDC library
+    </p>
+</td>
+                                            <td class="description">      This new API allows the user to provide only obs via their obsKey (prefiltered/preselected obs) to be used in the DC instead of all loaded obs.<br/>
+<br/>
+The user can use the newly added ObsGetSelected() to filter out certain obs and provide only those obs to the DC.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow351242" rel="351242" data-issuekey="ASTROSTDS-1309" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1309" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1309">ASTROSTDS-1309</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add new method BachDCInitSatObsSel() to BatchDC library
+    </p>
+</td>
+                                            <td class="description">      This method allows the user to provide obs selection criteria to the DC. Only obs that match the provided obs selection criteria are used in the DC instead of all loaded obs in the memory
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow351240" rel="351240" data-issuekey="ASTROSTDS-1308" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1308" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1308">ASTROSTDS-1308</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add ObsGetSelected() to Obs library
+    </p>
+</td>
+                                            <td class="description">      Via xa_selob array, the user can specify the obs selection criteria which when passes to this new API ObsGetSelected, only obs that match that criteria will be returned to the caller by its obsKey.<br/>
+<br/>
+Different selection criteria can be specified using the xa_selob array. Currently, the user can specified the obs time span; ASTAT values; obs types; different obs data range: range, az, el, RA, dec, az rate, el rate, range rate... ; satellite numbers; sensor numbers...
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow351225" rel="351225" data-issuekey="ASTROSTDS-1307" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1307" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1307">ASTROSTDS-1307</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add timing constants check to WinWin
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow351216" rel="351216" data-issuekey="ASTROSTDS-1306" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1306" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1306">ASTROSTDS-1306</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Correct description of UTCToET() - remove extra information about UTC and UT1 since it&#39;s irrelevant
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow349119" rel="349119" data-issuekey="ASTROSTDS-1305" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1305" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1305">ASTROSTDS-1305</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="summary"><p>
+                Investigate why readStat wasn&#39;t used to check for error when reading csv obs
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow349117" rel="349117" data-issuekey="ASTROSTDS-1304" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1304" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1304">ASTROSTDS-1304</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix bug in TimeFuncWrapper_Service.cs where only full second (instead of whole and fractional second) is used
+    </p>
+</td>
+                                            <td class="description">      Need to replace full second with whole and fractional second in these methods:<br/>
+<br/>
+CurrTimeInDs50UTC(), DateTimeToDs50UTC(DateTime), and DateTimeToDs50UTC(string)
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow348714" rel="348714" data-issuekey="ASTROSTDS-1303" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1303" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1303">ASTROSTDS-1303</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add new method LamodSenSatDirect_OS() to Lamod library
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow347196" rel="347196" data-issuekey="ASTROSTDS-1302" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1302" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1302">ASTROSTDS-1302</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="summary"><p>
+                Update LAMOD driver code to remove minimum elevation from constant azimuth fan
+    </p>
+</td>
+                                            <td class="description">      Minimum elevation is no longer applied to constant azimuth fan and therefore needs to be remove from all LAMOD driver code
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow347195" rel="347195" data-issuekey="ASTROSTDS-1301" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1301" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1301">ASTROSTDS-1301</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="summary"><p>
+                Update Sensor document to remove minimum elevation parameter from the constant azimuth fan
+    </p>
+</td>
+                                            <td class="description">      Since the fan can be tilted, the minimum elevation can be inadvertently applied and produce wrong results. For example, when the tilt angle is 90 degrees, the fan becomes a local horizontal plane and therefore the user has to set minimum elevation to something less than zero degrees for LAMOD to return any passes. Obviously that&#39;s something that the user can easily forget. To avoid this kind of problem, removing minimum elevation from constant azimuth fan seems to be a better solution
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow346618" rel="346618" data-issuekey="ASTROSTDS-1300" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1300" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1300">ASTROSTDS-1300</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Allow Sgp4PosVelToTleArr() to return less accurate results even if it fails to converge
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow346271" rel="346271" data-issuekey="ASTROSTDS-1298" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1298" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1298">ASTROSTDS-1298</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Create Jenkins pipelines to build and run Tcl driver examples for Linux
+    </p>
+</td>
+                                            <td class="description">      There needs to be 2 pipelines: <br/>
+ * to build the Tcl shared libraries.<br/>
+ * to run the actual driver examples
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow346268" rel="346268" data-issuekey="ASTROSTDS-1296" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1296" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1296">ASTROSTDS-1296</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Create Tcl script to build its libraries from Jenkins for Linux
+    </p>
+</td>
+                                            <td class="description">      There&#39;s already a Makefile and MakeAll.sh script to build the libraries, but there needs to be a script to allow developers and Jenkins to call these scripts and to setup environment variables and verify that the tcl binaries are in the path, etc.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow346267" rel="346267" data-issuekey="ASTROSTDS-1295" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1295" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1295">ASTROSTDS-1295</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Install Tcl on all Windows nodes for Jenkins
+    </p>
+</td>
+                                            <td class="description">      Run ActiveTcl-8.6.13.0000-MSWin32-x64-559160e0.msi on all Windows nodes in Jenkins
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow346265" rel="346265" data-issuekey="ASTROSTDS-1294" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1294" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1294">ASTROSTDS-1294</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Install Tcl on all Linux nodes for Jenkins
+    </p>
+</td>
+                                            <td class="description">      Unzip ActiveTcl-8.6.13.0000-x86_64-linux-glibc-2.17-3e7e97f6.tar.gz and run /bin/install.sh as root.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow346041" rel="346041" data-issuekey="ASTROSTDS-1293" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1293" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1293">ASTROSTDS-1293</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Get Astro Standards Working on Android
+    </p>
+</td>
+                                            <td class="description">      There is some interest in getting Astro Standards working in Android.<br/>
+<br/>
+ <br/>
+<br/>
+Unfortunately, I think only the static executables will work.  I keep getting errors with the shared objects due to some error that might have to do with multithreading flags.  Still looking into it.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow345478" rel="345478" data-issuekey="ASTROSTDS-1292" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1292" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1292">ASTROSTDS-1292</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Update sensor document to include the a newly added parameter - off boresight angle - to constant azimuth fan 
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow345477" rel="345477" data-issuekey="ASTROSTDS-1291" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1291" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1291">ASTROSTDS-1291</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add a new parameter - off boresight angle - to constant azimuth fan 
+    </p>
+</td>
+                                            <td class="description">      Add another parameter - off boresight angle - to the current constant azimuth fan along the min/max ranges. These parameters are to specify the size of the fan whereas the azimuth and tilt angle specify the orientation of the fan.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow345270" rel="345270" data-issuekey="ASTROSTDS-1290" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1290" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1290">ASTROSTDS-1290</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Combo should return the same absolute minimum time regardless set value of relative minimum flag
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow344370" rel="344370" data-issuekey="ASTROSTDS-1288" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1288" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1288">ASTROSTDS-1288</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Build standalone executables faster
+    </p>
+</td>
+                                            <td class="description">      Currently, it&#39;s taking 24 minutes to build the standalone executables on Windows because each one is built in sequence.   Need to figure out a way to build them concurrently.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow344369" rel="344369" data-issuekey="ASTROSTDS-1287" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1287" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1287">ASTROSTDS-1287</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Install Octave in all Jenkins Windows nodes
+    </p>
+</td>
+                                            <td class="description">      Install Octave on all Windows nodes so Jenkins can run it.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow344232" rel="344232" data-issuekey="ASTROSTDS-1286" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1286" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1286">ASTROSTDS-1286</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add Sgp4Prop Large test case when running BaselineComparator
+    </p>
+</td>
+                                            <td class="description">      To catch more errors, need to run the large test case in V&amp;V, but it&#39;s too big to provide to the users, so just run it through the BaselineComparator tool.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow343688" rel="343688" data-issuekey="ASTROSTDS-1284" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1284" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1284">ASTROSTDS-1284</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix bug in SGP4-XP when cube root of a negative number may return &quot;NaN&quot;
+    </p>
+</td>
+                                            <td class="description">      The quartic routine (used in shadow computation) may return &quot;NaN&quot; when computing cube root of a negative number:<br/>
+<br/>
+ <br/>
+<br/>
+if(DEL &gt; 0d0) then<br/>
+<br/>
+        RTDEL = sqrt(DEL)<br/>
+<br/>
+        Z1 = (-.5D0*LB + RTDEL)**(1.D0/3.D0) + (-.5D0*LB - RTDEL)**(1.D0/3.D0)<br/>
+<br/>
+        !Z2 = 0.D0<br/>
+<br/>
+        !Z3 = 0.D0<br/>
+<br/>
+        RP = Z1 + S<br/>
+<br/>
+     else if(DEL == 0d0) then<br/>
+<br/>
+        Z1 = 2.D0*(-.5D0*LB)**(1.D0/3.D0)<br/>
+<br/>
+        Z2 = (.5D0*LB)**(1.D0/3.D0)
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow343687" rel="343687" data-issuekey="ASTROSTDS-1283" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1283" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1283">ASTROSTDS-1283</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Fix round-off error when over punching different observation data
+    </p>
+</td>
+                                            <td class="description">      Summary: If a negative declination value with more than 4 decimal places is in the Astro Standards memory, then an error can occur when creating the B3 observation string for that ob. (This is theoretically possible for elevation and range rate values as well.) The specific example we observed was a type 5 observation with a declination value of -29.99997 which resulted in a declination value of K00000 (-20.0000) in the B3 observation. Based on this one example, it appears that the negative number to letter conversion is being done before rounding to 4 decimal places resulting in an error of approximately 10 degrees.<br/>
+<br/>
+ <br/>
+<br/>
+Disclaimer: We are using the Astro standards for modeling and simulation purposes and are very likely doing things that may not be likely to occur with typical usage.<br/>
+<br/>
+ <br/>
+<br/>
+Astro Standards Version: 8.4<br/>
+<br/>
+ <br/>
+<br/>
+Steps to reproduce the error:<br/>
+ # Add a type 5 observation to the Astro Standards memory<br/>
+ # Change the declination value to -29.99997<br/>
+ # Get the B3 string for that ob from the Astro Standards and note the declination value<br/>
+<br/>
+ <br/>
+<br/>
+Austin Ventura<br/>
+<br/>
+Space Analyst, Lead<br/>
+<br/>
+N112 – Special Projects<br/>
+<br/>
+(O) 719-572-8389<br/>
+<br/>
+(M) 719-246-2881<br/>
+<br/>
+MITRE | Solving Problems for a Safer World ®
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow342956" rel="342956" data-issuekey="ASTROSTDS-1282" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1282" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1282">ASTROSTDS-1282</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Release Notes wrong link
+    </p>
+</td>
+                                            <td class="description">      In the Release notes document the embedded hyperlink is wrong, if you click the hyperlink for SARP it goes to a Parsons login page instead of the SARP website. I assume this is how you have to remote into SARP from Parsons computers. It&#39;s wrong in these two sentences on page 1:<br/>
+<br/>
+&quot;For the balance of the Astro Standard Applications, use https://halfway.peterson.af.mil/SARP [halfway.peterson.af.mil].&quot; <br/>
+<br/>
+Once logged-in to https://halfway.peterson.af.mil/SARP [halfway.peterson.af.mil] obtain additional details by referring to the document,
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow340885" rel="340885" data-issuekey="ASTROSTDS-1280" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1280" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1280">ASTROSTDS-1280</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="summary"><p>
+                Send Terraform and Puppet code to Salina
+    </p>
+</td>
+                                            <td class="description">      Research Terraform and Puppet code from DragonOps and JEON to send to Salina for Astro Cloud.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow339663" rel="339663" data-issuekey="ASTROSTDS-1277" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1277" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1277">ASTROSTDS-1277</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Test Matlab RunDriverExamples.ps1 script on MatLab Jenkins node
+    </p>
+</td>
+                                            <td class="description">      Get RunDriverExamples.ps1 script to run from Jenkins.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow339662" rel="339662" data-issuekey="ASTROSTDS-1276" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1276" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1276">ASTROSTDS-1276</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Install MatLab on all Jenkins nodes
+    </p>
+</td>
+                                            <td class="description">      Install MatLab on all Jenkins nodes - Windows and Linux.   If possible, on Mac.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow336125" rel="336125" data-issuekey="ASTROSTDS-1275" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1275" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1275">ASTROSTDS-1275</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add option to allow WinWin to export grid data to CSV file format
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow336101" rel="336101" data-issuekey="ASTROSTDS-1274" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1274" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1274">ASTROSTDS-1274</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Investigate using Matlab profile (.m) file to remove dependency on a C compiler when calling loadlibrary()
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow321011" rel="321011" data-issuekey="ASTROSTDS-1273" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1273" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1273">ASTROSTDS-1273</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Turn processgeodss into standalone exe
+    </p>
+</td>
+                                            <td class="description">      processgeodss is a tool used at 18 SDS to process the geodss UCTs.  It needs to be updated for XP, 9-digit, and csv obs/els.  
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow312100" rel="312100" data-issuekey="ASTROSTDS-1272" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1272" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1272">ASTROSTDS-1272</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                update DC to be a standalone executable
+    </p>
+</td>
+                                            <td class="description">      Cavenet doesn&#39;t work with libraries, so I made a standalone executable to allow 18 SDS to do DCs with csv elsets and obs.  Works with SGP4/XP
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow311499" rel="311499" data-issuekey="ASTROSTDS-1271" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1271" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1271">ASTROSTDS-1271</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                update rotdrv to be a standalone exe
+    </p>
+</td>
+                                            <td class="description">      Since the libraries don&#39;t work with cavenet, we&#39;ll have to make executables for many of the applications.  This will allow 18 SDS to work with SGP4/XP/VCMs
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow311644" rel="311644" data-issuekey="ASTROSTDS-1270" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1270" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1270">ASTROSTDS-1270</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Added new method ObsGetSelected() to Obs library
+    </p>
+</td>
+                                            <td class="description">      Allow the user to select certain obs from the loaded obs using the specified obs selection criteria
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow311393" rel="311393" data-issuekey="ASTROSTDS-1269" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1269" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1269">ASTROSTDS-1269</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Update fortranexes README.txt and remove sub README.txt files
+    </p>
+</td>
+                                            <td class="description">      The README.txt in the fortranexes folder needs to be updated.   It references exe list that is not complete.   And since it&#39;s constantly changing, remove that section.   Also add a note from Zach:  if you run it without arguments it prints a mini man page (a wee man page?).  It give you the arguments and what each does.<br/>
+<br/>
+Also, under each executable folder, there&#39;s a useless README.txt file.   Delete them.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow309373" rel="309373" data-issuekey="ASTROSTDS-1268" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1268" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1268">ASTROSTDS-1268</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add TConTimeSpan() to TimeFunc to return the number of loaded timing constants records along with the first and last records stored in memory
+    </p>
+</td>
+                                            <td class="description">      Need to return information about loaded timing constant records so the user can check if the start/end times of the timing records are appropriate
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow302425" rel="302425" data-issuekey="ASTROSTDS-1267" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1267" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1267">ASTROSTDS-1267</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                &quot;Show sensor information&quot; in WinWin doesn&#39;t show sensor location/limit cards 
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow299415" rel="299415" data-issuekey="ASTROSTDS-1266" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1266" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1266">ASTROSTDS-1266</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Add maneuver plotting capability to WinWin
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow296472" rel="296472" data-issuekey="ASTROSTDS-1265" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1265" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1265">ASTROSTDS-1265</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Create utility to compare baseline files
+    </p>
+</td>
+                                            <td class="description">      Need a utility to compare all the baseline files to see what truly changed.   The first line shows a version number, but that should not be included as a change.   And the last line is a performance time.   That too should not be included.<br/>
+<br/>
+It should allow you to show the difference between 2 different versions of all the baseline files.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow296928" rel="296928" data-issuekey="ASTROSTDS-1264" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1264" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1264">ASTROSTDS-1264</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Remove unused configurations from solution files like Release32bit, UnitTest32bit, ...
+    </p>
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow286000" rel="286000" data-issuekey="ASTROSTDS-1261" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1261" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1261">ASTROSTDS-1261</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Bug
+</td>
+                                            <td class="summary"><p>
+                Need to review all instances of speed of light being used in the libraries
+    </p>
+</td>
+                                            <td class="description">      Found out that speed of light constant SPDLIT was based on EGM-96 but being used and mixed with different earth model than EGM-96. One of the test case using an SLR obs showed that this mismatched earth model can cause range delta difference around 8 meters in Rotas.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow281100" rel="281100" data-issuekey="ASTROSTDS-1260" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1260" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1260">ASTROSTDS-1260</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Change vandv jenkins pipeline to run all tests simultaneously
+    </p>
+</td>
+                                            <td class="description">      To reduce the amount of time it takes to run vandv, set it to run in parallel
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow276175" rel="276175" data-issuekey="ASTROSTDS-1247" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1247" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1247">ASTROSTDS-1247</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="summary"><p>
+                Get linux version of cloc
+    </p>
+</td>
+                                            <td class="description">      The Windows version of cloc.exe runs very slow because we have to checkout all 20+ repositories to have it scan.   See if a linux version would run quicker.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow267812" rel="267812" data-issuekey="ASTROSTDS-1232" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1232" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1232">ASTROSTDS-1232</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="summary"><p>
+                Update makefile builders
+    </p>
+</td>
+                                            <td class="description">      The makefile builder scripts need updating because the Makefile files have changed.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow266474" rel="266474" data-issuekey="ASTROSTDS-1228" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1228" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1228">ASTROSTDS-1228</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Create runExample.bat script for Rust
+    </p>
+</td>
+                                            <td class="description">      These scripts are to be run by the RunDriverExamples.ps1 script from Jenkins and allows users a simple way to run driver examples with simple error messages, like add XXX to path.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow266473" rel="266473" data-issuekey="ASTROSTDS-1227" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1227" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1227">ASTROSTDS-1227</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Install Rust compiler on Windows builder
+    </p>
+</td>
+                                            <td class="description">      Install the offline/standalone rust compiler on the Jenkins Windows builder.  Then ask Salina to capture the image.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow263760" rel="263760" data-issuekey="ASTROSTDS-1220" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1220" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1220">ASTROSTDS-1220</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Make all &quot;TestInterfaces&quot; driver examples consistent
+    </p>
+</td>
+                                            <td class="description">      Driver examples have &quot;TestInterface&quot;, &quot;TestInterfaces&quot;, and &quot;test&quot;.   They should all be the same.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow261727" rel="261727" data-issuekey="ASTROSTDS-1208" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1208" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1208">ASTROSTDS-1208</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Re-architect build scripts
+    </p>
+</td>
+                                            <td class="description">      Create a new repo with all the build scripts, and move all the build scripts out of all the other repos.   This is so every time a change to the build scripts is made, it won&#39;t kick off a build for that repo.   i.e.. we change the directory where the fortrandlls libraries are copied to.  This has nothing to do with fortrandlls, but because the build script is changed is in that repo, fortrandlls gets rebuilt.<br/>
+<br/>
+Also, create an inheritance architecture, so common functions, variables, and behavior can be in one file and any unique behavior can be in other scripts, but those scripts can source the common script.<br/>
+<br/>
+Also, use bash for BuildDriverExamples instead of powershell because linux can run faster and can multithread on Jenkins.<br/>
+<br/>
+Notes:<br/>
+<br/>
+- Remove the copying of the gendllwrappers.jar to the distro because the new BuildWrapperDistribuiltion.sh/ps1 already copies the jar to the distro
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow256090" rel="256090" data-issuekey="ASTROSTDS-1197" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1197" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1197">ASTROSTDS-1197</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Upgrade Swift compiler on Windows build servers to 6/5 development branch
+    </p>
+</td>
+                                            <td class="description">      The Swift compiler from 6/5 development branch fixed the Windows parent folder reference problem.   Need to install it on the Windows build server.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow233120" rel="233120" data-issuekey="ASTROSTDS-1146" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1146" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1146">ASTROSTDS-1146</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Update createDevEnv scripts
+    </p>
+</td>
+                                            <td class="description">      Need to have it run GenDllWrappers and copy the C# wrappers to the appropriate place.   Work with Dinh on other tasks, like running devenv.com to build models, etc.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow208541" rel="208541" data-issuekey="ASTROSTDS-1032" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-1032" href="https://jira.il2.dso.mil/browse/ASTROSTDS-1032">ASTROSTDS-1032</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Task
+</td>
+                                            <td class="summary"><p>
+                Obtain standalone/offline installer for Tcl and supporting files for Windows and Linux
+    </p>
+</td>
+                                            <td class="description">      To run Tcl, it requires the Tcl interpreter and supporting &quot;devel&quot; library.   Since this is to run off the AVAC network, the installer needs to be a standalone/offline installer.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow183732" rel="183732" data-issuekey="ASTROSTDS-903" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-903" href="https://jira.il2.dso.mil/browse/ASTROSTDS-903">ASTROSTDS-903</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    New Feature
+</td>
+                                            <td class="summary"><p>
+                Add logic to GenDllWrappers to create Swagger controllers
+    </p>
+</td>
+                                            <td class="description">      There is a manually created class in astro_swagger repository, in the src folder.   It should be auto-generated via the GenDllWrappers application.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+
+
+                <tr id="issuerow87674" rel="87674" data-issuekey="ASTROSTDS-649" class="issuerow">
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="ASTROSTDS-649" href="https://jira.il2.dso.mil/browse/ASTROSTDS-649">ASTROSTDS-649</a>
+</td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-success jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;" title="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Done&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;jira-issue-status-tooltip-desc&quot;&gt;This is the terminating state of the fire tickets.&lt;/span&gt;">Done</span>    </td>
+                                            <td class="issuetype">    Improvement
+</td>
+                                            <td class="summary"><p>
+                Document Sensor vector is backwards
+    </p>
+</td>
+                                            <td class="description">      TP008 shows calculations to be forwards and backwards.  Suspect one of them is wrong.  Need to fix the sensor vector to be from the sensor.  It is currently backwards.   This should not affect the users.  It is only internal to the developers.
+  </td>
+                                            <td class="fixVersions">                        9.3            </td>
+                    </tr>
+                </tbody>
+    </table>
+    </issuetable-web-component>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#f5f5f5" colspan="6"><font size="1">
+        Generated at Fri Jan 19 20:04:29 UTC 2024 by Zach Slatton using Jira 9.4.14#940014-sha1:734e6822bbf0d45eff9af51f82432957f73aa32c.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>

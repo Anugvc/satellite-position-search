@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectCreator="Intel Fortran" Keyword="Console Application" Version="11.0" ProjectIdGuid="{34170421-6180-47ED-B3F3-F48503460C08}">
+	<Platforms>
+		<Platform Name="Win32"/>
+		<Platform Name="x64"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+				<Tool Name="VFLinkerTool" AdditionalLibraryDirectories="..\..\..\..\Lib\Win32" GenerateDebugInformation="true" SubSystem="subSystemConsole" AdditionalDependencies="DllMain.lib EnvConst.lib AstroFunc.lib TimeFunc.lib Tle.lib Sgp4Prop.lib"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|Win32">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" RuntimeLibrary="rtMultiThreadedDLL"/>
+				<Tool Name="VFLinkerTool" AdditionalLibraryDirectories="..\..\lib" SubSystem="subSystemConsole" AdditionalDependencies="DllMain.lib EnvConst.lib AstroFunc.lib TimeFunc.lib Tle.lib Sgp4Prop.lib"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Debug|x64">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" WarnInterfaces="true" Traceback="true" BoundsCheck="true" StackFrameCheck="true" RuntimeLibrary="rtMultiThreadedDebugDLL"/>
+				<Tool Name="VFLinkerTool" AdditionalLibraryDirectories="..\..\lib" GenerateDebugInformation="true" SubSystem="subSystemConsole" AdditionalDependencies="DllMain.lib EnvConst.lib AstroFunc.lib TimeFunc.lib Tle.lib Sgp4Prop.lib"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration>
+		<Configuration Name="Release|x64">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" RuntimeLibrary="rtMultiThreadedDLL"/>
+				<Tool Name="VFLinkerTool" AdditionalLibraryDirectories="..\..\lib" SubSystem="subSystemConsole" AdditionalDependencies="DllMain.lib EnvConst.lib AstroFunc.lib TimeFunc.lib Tle.lib Sgp4Prop.lib"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true" TargetEnvironment="midlTargetAMD64"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/>
+				<Tool Name="VFManifestTool" SuppressStartupBanner="true"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Header Files" Filter="fi;fd"/>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<Filter Name="Include">
+		<File RelativePath="..\wrappers\AstroFuncDll.f90"/>
+		<File RelativePath="..\wrappers\DllMainDll.f90"/>
+		<File RelativePath="..\wrappers\EnvConstDll.f90"/>
+		<File RelativePath="..\wrappers\Sgp4PropDll.f90"/>
+		<File RelativePath="..\wrappers\TimeFuncDll.f90"/>
+		<File RelativePath="..\wrappers\TleDll.f90"/></Filter>
+		<File RelativePath=".\src\Sgp4Prop_Simple.f90"/>
+		<File RelativePath=".\src\Sgp4PropMod.f90"/></Filter></Files>
+	<Globals/></VisualStudioProject>

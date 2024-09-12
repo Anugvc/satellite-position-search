@@ -1,17 +1,54 @@
+/*
+Purpose:
+   This program shows how a C program can call Astrodynamic Standard Dlls to propagate
+   satellites to the requested time using SGP4 method.
 
-#include <ctime>
-//#include <sgp4/sgp4.h>
+   The program reads in user specified file, the start, stop time (in minutes since epoch),
+   and time step (in minutes). The program generates an ephemeris of position and velocity
+   for each satellite read in. In addition, the program also generates other sets of orbital
+   elements such as osculating Keplerian elements, mean Keplerian elements,
+   latitude/longitude/height/pos, and nodal period/apogee/perigee/pos. Totally, the program
+   prints results to five different output files.
+
+
+Usage: Command line format
+   Sgp4Prop inFile outFile startTime stopTime stepSize
+   inFile   : File contains TLEs
+   outFile  : Base name for five output files
+   startTime: propagating start time in minutes since epoch
+   stopTime : propagating stop time in minutes since ecpoch
+   stepSize : propagating step size in minutes
+   -IlibPath: Optional path to the Astrodynamics Standards library
+
+
+Note:
+   To see this program correctly in Visual Studio set the tab size to 3 and check
+   insert spaces in Tools/Options/Tabs
+
+*/
+
+
+#include <stdio.h>
+#include <process.h>
+#include <windows.h>
+#include <math.h>
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
-#include <tuple>
-#include <cuda.h>
-#include <cuda_runtime.h>
-//#include "sgp4io.h"  // Include the SGP4 library headers
-//#include "sgp4unit.h"
 
-#include "common_include.h"
+struct parameters
+{
+    double startTime;
+    double stopTime;
+    double stepSize;
+    int start;
+    int stop;
+    __int64* satKeys;
+    __int64* satPtrs;
+};
+
+typedef struct parameters parameters;
 
 // Compiler directive that allows C++ code to use the C header files
 // Begin
@@ -20,211 +57,535 @@ extern "C"
 {
 #endif
 
-#include "DllMainDll_Service.h" 
-#include "TimeFuncDll_Service.h"
-#include "DllMainDll.h"
-#include "EnvConstDll.h"
-#include "AstroFuncDll.h"
-#include "TimeFuncDll.h"
-#include "TleDll.h"
-#include "Sgp4PropDll.h"
+#include "../../wrappers\DllMainDll.h"
+#include "../../wrappers\EnvConstDll.h"
+#include "../../wrappers\AstroFuncDll.h"
+#include "../../wrappers\TimeFuncDll.h"
+#include "../../wrappers\TleDll.h"
+#include "../../wrappers\Sgp4PropDll.h"
 
     // End
 #ifdef __cplusplus
 }
 #endif
 
-//extern "C" void createPositionVector(sat_pos_st * d_sat_pos, satellite_st * d_satllites, int numSatellites, int time_mins);
+#include "common_include.h"
 
-//extern "C" void transformlla(sat_pos_st * d_sat_pos, int numSatellites, int time_mins);
 
-extern "C" unsigned int searchSatellites(sat_pos_st * satelliteArray, int numSatllite, int numMins, sat_pos_st* searchedSatData, point_st * region, unsigned int* numSatInsideRegion);
-
+// Predefined output file names
+#define  OSC_STATE      "_OscState.txt"
+#define  OSC_ELEM       "_OscElem.txt"
+#define  MEAN_ELEM      "_MeanElem.txt"
+#define  LLH_ELEM       "_LatLonHeight.txt"
+#define  NODAL_AP_PER   "_NodalApPer.txt"
 
 // Function prototypes
-void  LoadAstroStdDlls();
+void  LoadAstroStdDlls(const char*);
 void  FreeAstroStdDlls();
+void  PrintHeader(FILE* fp, char* infoStr, char* inFile,
+    double startTime, double stopTime, double stepSize);
+
+void  PrintPosVel(FILE* fp, double mse, double* pos, double* vel);
+void  PrintOscEls(FILE* fp, double mse, double* oscKep);
+void  PrintMeanEls(FILE* fp, double mse, double* meanKep);
+void  PrintLLH(FILE* fp, double mse, double* llh, double* pos);
+void  PrintNodalApPer(FILE* fp, double mse, double n, double* nodalApPer);
+//void DoThread(parameters* para);
+unsigned __stdcall DoThread(parameters* para);
+sat_pos_st* sat_positions;
+satellite_st* satllites;
 
 
-// Function to convert std::tm to Julian Date
-void jday(int year, int month, int day, int hour, int minute, double second, double& jd, double& fr) {
-    jd = 367.0 * year - int((7 * (year + int((month + 9) / 12.0))) * 0.25) + int(275 * month / 9.0) + day + 1721013.5;
-    fr = (second + minute * 60.0 + hour * 3600.0) / 86400.0;
+// Function to trim leading and trailing whitespace
+std::string trimWhitespace(const std::string& str) {
+    // Find the first non-whitespace character
+    size_t start = str.find_first_not_of(" \t\n\r\f\v");
+    if (start == std::string::npos) {
+        return ""; // All whitespace or empty string
+    }
+
+    // Find the last non-whitespace character
+    size_t end = str.find_last_not_of(" \t\n\r\f\v");
+
+    // Create a substring without leading and trailing whitespace
+    return str.substr(start, end - start + 1);
 }
 
 
 
-int main() {
+
+int main(int argc, char* argv[])
+{
+    FILE* fpOscState;	   // Osculating state vector
+    FILE* fpOscElem;	   // Osculating Keplerian elements
+    FILE* fpMeanElem;	   // Mean Keplerian Elements				
+    FILE* fpLLH;	      // Latitude,longitude,height,pos
+    FILE* fpnodalApPer;	// Nodal period,apogee,perigee,pos
+
+#ifdef _WIN32
+    char  libPath[128] = ".\\";  // Default to the folder where the executable is called
+#else
+    char  libPath[128] = "./";  // Default to the folder where the executable is called
+#endif
+
+    char  inFile[100], outFile[100], outputFileName[100];
+    double startTime = 0;
+    double stopTime = 1440;
+    double stepSize = 1;
+
+    char  logFile[] = "c_sgp4_log.txt";
+
+    char  sgp4DllInfo[128];
+    char  errMsg[128];
+
+    char  line1[80];
+    char  line2[80];
 
     int   errCode;
     int   numSats;
+    int   i;
 
-    double ds50UTC;
+    double mse, ds50UTC;
+    double meanMotion;
 
     __int64* pSatKeys;
+    __int64* pSatPtrs;
+    int numOfThreads, numSatsPerThread;
+    DWORD dwWaitReturn;
+    int stillActive;
+
+    //__int64 satKeys[100];   // for static array
+
+    // Arrays that store propagator output data
+    double
+        pos[3],           //Position (km)
+        vel[3],           //Velocity (km/s)
+        llh[3],           // Latitude(deg), Longitude(deg), Height above Geoid (km)
+        meanKep[6],       //Mean Keplerian elements
+        oscKep[6],        //Osculating Keplerian elements
+        nodalApPer[3];    //Nodal period, apogee, perigee
+
+    parameters para1, para2, para[100];
+    HANDLE hThread[100];
 
     clock_t start, finish;
     std::string tle_file_path = "D:\\perdonsl\\Assignment_Code_Optimization\\Assignment_Code_Optimization\\Assignment_Code_Optimization\\30000sats.txt"; // Replace with your TLE file path
 
-    double  mse, startTime, endTime;
-    __int64 satKey;
 
-    // Arrays that store propagation data
-    double pos[3];   // Position (km) in TEME of Epoch
-    double vel[3];   // Velocity (km/s) in TEME of Epoch
-    double llh[3];   // Latitude(deg), Longitude(deg), Height above Geoid (km)
+    printf("Program starts.\n");
+    start = clock();
 
+    strcpy(inFile, tle_file_path.c_str());
 
-    // Load all the dlls being used in the program from the specified path (PATH env on Windows or LD_LIBRARY_PATH on Linux)
-    LoadAstroStdDlls();
+    // This program is getting input parameters from the command line.
+    // Follow the instruction to pass parameters in the right order.
+    /*if (argc >= 6)
+    {
 
-    /* load a TLE using strings (see TLE dll document)
-    satKey = TleAddSatFrLines("1 25544U 98067A   23055.36715531  .00017001  00000+0  31285-3 0  9996",
-        "2 25544  51.6387 167.3561 0005418  22.9195  99.0673 15.49284681384295");
-
-    // other ways to load TLEs into memory to work with
-    //TleLoadFile(fileName);  // load TLEs from a text file
-    //TleAddSatFrFieldsGP();  // load a TLE by passing its data fields
-
-    // initialize the loaded TLE before it can be propagated (see Sgp4Prop dll document)
-    // This is important!!!
-    errCode = Sgp4InitSat(satKey);
-
-    // check to see if initialization was successful
-    if (errCode != 0)
+        strcpy(inFile, argv[1]);
+        strcpy(outFile, argv[2]);
+        startTime = atof(argv[3]);
+        stopTime = atof(argv[4]);
+        stepSize = atof(argv[5]);
+        if (argc == 7 && strncmp(argv[6], "-I", 2) == 0) // optional -IlibPath provided
+            strcpy(libPath, &argv[6][2]);
+        printf("Input file  = %s\n", inFile);
+        printf("Output file = %s\n", outFile);
+        printf("Start time  = %f\n", startTime);
+        printf("Stop time   = %f\n", stopTime);
+        printf("Step size   = %f\n", stepSize);
+    }
+    else
+    {
+        printf("Error in number of parameters passed. Please see the usage.\n\n\n");
+        printf("Usage    : Sgp4Prop inFile outFile startTime stopTime stepSize\n\n");
+        printf("inFile   : File contains TLEs\n");
+        printf("outFile  : Base name for five output files\n");
+        printf("startTime: propagating start time in minutes since epoch\n");
+        printf("stopTime : propagating stop time in minutes since ecpoch\n");
+        printf("stepSize : propagating step size in minutes\n");
+        printf("-IlibPath : Specified path \"libpath\" to the Astrodynamic Standards library.\n");
         exit(1);
-    mse = 0;
-
-    //Sgp4PropMse(satKey, mse, &ds50UTC, pos, vel, llh);
-
-
-    startTime = DTGToUTC("2460191.33765046296296297");
-
-    Sgp4PropDs50UTC(satKey, startTime, &mse, pos, vel, llh);
-
-    std::cout << "pos1: " << pos[0] << "pos2: " << pos[1] << "pos3: " << pos[2] << std::endl;
-    return 0;
+    }
     */
-    // mannual check to verify sgp4 output
+
+    //printf("Library Path= %s\n\n", libPath);
+
+    // Load all the dlls being used in the program
+    // Remember to specify the correct path to the Astro Standards dlls including the forward/backward slash at the end
+    LoadAstroStdDlls(libPath);
+
+    // Log diagno*stic information to a log file. This is optional
+    //-----------------------------------------------------------
+    //errCode = OpenLogFile(logFile);
+
+    //if (errCode != 0)
+    //   ShowMsgAndTerminate();
 
 
-
-    char* tlestr = (char*)malloc(tle_file_path.size() + 1);
-    strcpy(tlestr, tle_file_path.c_str());
+    TleAddSatFrFieldsGP(90028, 'U', "RELEAS14", 2010, 210.70350568, -0.000013568, 0, 377, 72.5158, 110.12453299132176, 0.001143, 124.7615, 235.4297, 12.44396488, 2428);
 
     // Load Tles from the input file
-    if (TleLoadFile(tlestr))
-        ShowMsgAndTerminate();
+    if (TleLoadFile(inFile))
+        return 0;
 
     // Count number of satellites currently loaded in memory
     numSats = TleGetCount();
-    if (numSats == 0)
-    {
-        printf("No TLEs were found in the input file\n");
-        ShowMsgAndTerminate();
-    }
-    printf("NUMSAT: %d\n", numSats);
-
 
     // Using dinamic array
     pSatKeys = (__int64*)malloc(numSats * sizeof(__int64));
-    sat_pos_st* sat_positions = (sat_pos_st*)malloc(sizeof(sat_pos_st) * numSats * 1440);
+    pSatPtrs = (__int64*)malloc(numSats * sizeof(__int64));
+
+    sat_positions = (sat_pos_st*)malloc(sizeof(sat_pos_st) * numSats * 1440 + 2); // Allocate memory for numSats * 1440 number of satellite positions
+
+    satllites = (satellite_st*)malloc(sizeof(satellite_st) * numSats + 2); // Allocate memory for numSats number of satellites
+
+    printf("NUMSATS: %d\n", numSats);
 
     // Get all the satellites' ids from memory and store them in the local array
     TleGetLoaded(2, pSatKeys);  // Get the satKeys in the order they were read
 
-    satellite_st* satDetails = (satellite_st*)malloc(sizeof(satellite_st) * numSats);
+    // Get information about the current DLL
+    Sgp4GetInfo(sgp4DllInfo);
+    sgp4DllInfo[127] = 0;
+    printf("%s\n", sgp4DllInfo);
 
 
-    // Loop through all the TLEs in the input file
-    for (int i = 0; i < numSats; i++)
+    /* Open output files. Check to see if error occurs
+    sprintf(outputFileName, "%s%s", outFile, OSC_STATE);
+    fpOscState = FileOpen(outputFileName, "wt");
+
+    sprintf(outputFileName, "%s%s", outFile, OSC_ELEM);
+    fpOscElem = FileOpen(outputFileName, "wt");
+
+    sprintf(outputFileName, "%s%s", outFile, MEAN_ELEM);
+    fpMeanElem = FileOpen(outputFileName, "wt");
+
+    sprintf(outputFileName, "%s%s", outFile, LLH_ELEM);
+    fpLLH = FileOpen(outputFileName, "wt");
+
+    sprintf(outputFileName, "%s%s", outFile, NODAL_AP_PER);
+    fpnodalApPer = FileOpen(outputFileName, "wt");
+    */
+
+
+    // Print header with output field names to files
+    /*PrintHeader(fpOscState, sgp4DllInfo, inFile, startTime, stopTime, stepSize);
+    fprintf(fpOscState, "%s\n",
+        "     TSINCE (MIN)           X (KM)           Y (KM)           Z (KM)      XDOT (KM/S)       YDOT(KM/S)    ZDOT (KM/SEC)");
+
+    PrintHeader(fpOscElem, sgp4DllInfo, inFile, startTime, stopTime, stepSize);
+    fprintf(fpOscElem, "%s\n",
+        "     TSINCE (MIN)           A (KM)          ECC (-)        INC (DEG)       NODE (DEG)      OMEGA (DEG)   TRUE ANOM(DEG)");
+
+    PrintHeader(fpMeanElem, sgp4DllInfo, inFile, startTime, stopTime, stepSize);
+    fprintf(fpMeanElem, "%s\n",
+        "     TSINCE (MIN)     N (REVS/DAY)          ECC (-)        INC (DEG)       NODE (DEG)      OMEGA (DEG)         MA (DEG)");
+
+    PrintHeader(fpLLH, sgp4DllInfo, inFile, startTime, stopTime, stepSize);
+    fprintf(fpLLH, "%s\n",
+        "     TSINCE (MIN)         LAT(DEG)        LON (DEG)          HT (KM)           X (KM)           Y (KM)           Z (KM)");
+
+    PrintHeader(fpnodalApPer, sgp4DllInfo, inFile, startTime, stopTime, stepSize);
+    fprintf(fpnodalApPer, "%s\n",
+        "     TSINCE (MIN)   NODAL PER(MIN)1/NODAL(REVS/DAY)       N(REVS/DY)    ANOM PER(MIN)      APOGEE (KM)      PERIGEE(KM)");
+
+*/
+
+    printf("Reading satellite names..\n");
+    std::ifstream file(tle_file_path);
+    //std::vector<SatellitePosition> results;
+    std::vector<std::string> lines;
+    std::string line;
+
+    int j = 0;
+    while (std::getline(file, line)) {
+        lines.push_back(line);
+        //if (line.find("1 ") != std::string::npos && line.find("2 ") != std::string::npos)
+          //  continue;
+        
+        if (line[1] != ' '/* && line[0] != '1' && line[0] != '2'*/)
+        {
+            int k = 0;
+            for (k = 0; k < line.size() && k < 48; k++) // Copy satellite names to satellite structure
+                satllites[j].satName[k] = line[k];
+            satllites[j].satName[k] = '\0';
+            j++;
+            //printf("j = %d name: %s\n", j, line.c_str());
+        }
+        
+    }
+    printf("Lines read.. %d lines numsat read: %d \n", lines.size(), j);
+    
+    /*int j = 0;
+    for (int i = 0 ; i < lines.size(); i++)
     {
-
-        // Initialize the satellite before propagating it
-        if (Sgp4InitSat(pSatKeys[i]) != 0)
+        if (lines[i][0] != '1' || lines[i][0] != '2')
         {
-            sat_positions[i].err = true; // Indicates error
-            printf("SGP4 INIT ERROR: %d\n", i);
-            ShowMsgAndTerminate();
+            std::string satName = trimWhitespace(lines[i]);
+            int k = 0;
+            for (k = 0; k < satName.size() && k < 49; k++) // Copy satellite names to satellite structure
+                satllites[j].satName[k] = satName[k];
+            satllites[j].satName[k] = '\0';
+            //std::cout << satName << std::endl;
+            j++;
+        //    break;
+
 
         }
-        //char satName[10];
-        //TleGetField(pSatKeys[i], 1, satName); // Retreives satname to satDetails structure array;
-        //strcpy(satDetails[i].satName, satName);
+      //  break;
+    }
+    */
+    //return 0;
+    /*
+    for (size_t i = 0, j = 0; i < lines.size(); i += 3, j++) {
+        std::string line1 = lines[i];
+        std::string line2 = lines[i + 1];
+        std::string line3 = lines[i + 2];
 
-        for (int mse = 0; mse < 1440; mse++)
-        {
-            sat_positions[1440 * i + mse].idx = i; // Set common index for same satellite
-            sat_positions[1440 * i + mse].mse = mse; // Iterate from satellite epoch
+        int k = 0;
+        for (k = 0; k < line1.size() && k < 49; k++) // Copy satellite names to satellite structure
+            satllites[j].satName[k] = line1[k];
+        satllites[j].satName[k] = '\0';
+        
+    }*/
+    printf("Satellite names read successfully..\n");
 
-            // propagate the initialized TLE to the specified time in minutes since epoch
-            Sgp4PropMse(pSatKeys[i], mse, &ds50UTC, sat_positions[1440 * i + mse].L, sat_positions[1440 * i + mse].V, sat_positions[1440 * i + mse].llh); // see Sgp4Prop dll document
-            sat_positions[1440 * i + mse].d50UTC = ds50UTC;
-            // std::cout << "INSIDE  SPG4PROP: " << sat_positions[1440 * i + mse].llh[0] << " " << sat_positions[1440 * i + mse].llh[1] << " " << sat_positions[1440 * i + mse].llh[2] << std::endl;
-            //std::cout << "INSIDE  SPG4PROP L : " << sat_positions[1440 * i + mse].L[0] << " " << sat_positions[1440 * i + mse].L[1] << " " << sat_positions[1440 * i + mse].L[2] << std::endl;
 
-            // break;
-        }
-        //break;
-        // Remove loaded satellites if no longer needed
-        //TleRemoveSat(pSatKeys[i]);   // remove loaded TLE from memory
-        //Sgp4RemoveSat(pSatKeys[i]);  // remove initialized TLE from memory
-        //TleRemoveAllSats();   // remove all loaded TLEs from memory
-        //Sgp4RemoveAllSats();  // remove all initialized TLEs from memory
+    for (int i = 8435; i < 8451; i++) // Check satellite names sample
+    {
+        printf("%s\n", satllites[i]);
 
     }
 
-    //std::cout << "INSIDE  SPG4PROP LLH: " << sat_positions[0].llh[0] << " " << sat_positions[0].llh[1] << " " << sat_positions[0].llh[2] << std::endl;
-    //std::cout << "INSIDE  SPG4PROP POS: " << sat_positions[0].L[0] << " " << sat_positions[0].L[1] << " " << sat_positions[0].L[2] << std::endl;
+
+    // Loop through all the TLEs in the input file
+    for (i = 0; i < numSats; i++)
+    {
+        // Initialize the satellite before propagating it
+        if (Sgp4InitSat(pSatKeys[i]) != 0);
+        
+            //ShowMsgAndTerminate();
+
+       // pSatPtrs[i] = Sgp4GetSatPtr(pSatKeys[i]);
+
+    }
+
+    numOfThreads = 32;
+    numSatsPerThread = ceil(1.0 * numSats / numOfThreads);
+
+    for (i = 0; i < numOfThreads; i++)
+    {
+        para[i].startTime = startTime;
+        para[i].stopTime = stopTime;
+        para[i].stepSize = stepSize;
+        para[i].satKeys = pSatKeys;
+        para[i].satPtrs = pSatPtrs;
+        para[i].start = numSatsPerThread * i;
+        para[i].stop = min_i(numSats, numSatsPerThread * (i + 1));
+        printf("Thread # %d - Start idx = %d End idx = %d\n", i + 1, para[i].start, para[i].stop);
+
+        //hThread1 = (HANDLE) _beginthread(DoThread, 0, (void*) &para1);;
+        hThread[i] = (HANDLE)_beginthreadex(0, 0, (_beginthreadex_proc_type)&DoThread, (void*)&para[i], 0, 0);
+    }
+
+    while (1)
+    {
+        stillActive = 0;
+        for (i = 0; i < numOfThreads; i++)
+        {
+            GetExitCodeThread(hThread[i], &dwWaitReturn);
+            if (dwWaitReturn == STILL_ACTIVE)
+            {
+                //printf("Thread %d still active.\n", i);
+                stillActive = 1;
+            }
+            else
+                ;//printf("Thread %d ended.\n", i);
+        }
+
+        if (!stillActive)
+            break;
+    }
+
+    for (i = 0; i < numOfThreads; i++)
+    {
+        CloseHandle(hThread[i]);
+    }
 
 
-    //TleRemoveAllSats();   // remove all loaded TLEs from memory
-    //Sgp4RemoveAllSats();  // remove all initialized TLEs from memory
+
+    //WaitForSingleObject(hThread1, INFINITE);
+    //WaitForSingleObject(hThread2, INFINITE);
+    //CloseHandle(hThread2);
 
 
-    //free(pSatKeys);
+    //// Loop through all the minute-since-epoch time steps
+    //for(mse = startTime; mse <= stopTime; mse += stepSize)
+    //{
+    //   // Loop through all the TLEs in the input file
+    //   for (i = 0; i < numSats; i++) 
+    //   {
+    //      // Propagate the current satellite to the time specified in mse
+          //  //errCode = Sgp4PropMse(pSatKeys[i], mse, &ds50UTC, pos, vel, llh);
+    //      errCode = Sgp4PropMseQuick(pSatKeys[i], pSatPtrs[i], mse, pos, vel);
+    //   }
+    //}
+
+
+ /*
+    // Loop through all the TLEs in the input file
+    for (i = 0; i < numSats; i++)
+    {
+       // Loop through all the minute-since-epoch time steps
+       for(mse = startTime; mse <= stopTime; mse += stepSize)
+       {
+
+          // Propagate the current satellite to the time specified in mse
+            //errCode = Sgp4PropMse(pSatKeys[i], mse, &ds50UTC, pos, vel, llh);
+          errCode = Sgp4PropMseQuick(pSatKeys[i], pSatPtrs[i], mse, pos, vel);
+       }
+    }
+ */
+
+
+
+ //// Loop through all the TLEs in the input file
+ //for (i = 0; i < numSats; i++) 
+ //{
+ //   // Return the two strings, line1 line2, representing the TLE
+ //   TleGetLines(pSatKeys[i], line1, line2);
+ //   line1[79] = 0;
+ //   line2[79] = 0;
+
+ //   // Print TLE for each satellite
+ //   fprintf(fpOscState, "\n\n %s\n %s\n\n", line1, line2);
+ //   fprintf(fpOscElem, "\n\n %s\n %s\n\n", line1, line2);
+ //   fprintf(fpMeanElem, "\n\n %s\n %s\n\n", line1, line2);
+ //   fprintf(fpLLH, "\n\n %s\n %s\n\n", line1, line2);
+ //   fprintf(fpnodalApPer, "\n\n %s\n %s\n\n", line1, line2);
+
+ //   // Initialize the satellite before propagating it
+ //   if (Sgp4InitSat(pSatKeys[i]) != 0)
+ //      ShowMsgAndTerminate();
+
+ //   satPtr = Sgp4GetSatPtr(pSatKeys[i]);
+
+ //   // Loop through all the minute-since-epoch time steps
+    // for(mse = startTime; mse <= stopTime; mse += stepSize)
+    // {
+ //      // Propagate the current satellite to the time specified in mse
+       //  //errCode = Sgp4PropMse(pSatKeys[i], mse, &ds50UTC, pos, vel, llh);
+ //      errCode = Sgp4PropMseQuick(pSatKeys[i], satPtr, mse, pos, vel);
+
+ //      /*
+ //      // Error or decay condition
+ //      if (errCode != 0) 
+ //      {
+ //         GetLastErrMsg(errMsg);
+ //         errMsg[127] = 0;
+
+ //         // Display error message to screen
+ //         printf("%s\n", errMsg);
+
+ //         // Write error message to files
+ //         fprintf(fpOscState, "%s\n", errMsg);
+ //         fprintf(fpOscElem, "%s\n", errMsg);
+ //         fprintf(fpMeanElem, "%s\n", errMsg);
+ //         fprintf(fpLLH, "%s\n", errMsg);
+ //         fprintf(fpnodalApPer, "%s\n", errMsg);
+
+ //         break; // Move to the next satellite
+ //      }
+
+
+ //      //Compute/Retrieve other propagator output data
+ //      //----------------------------------------------------------------
+ //      Sgp4GetPropOut(pSatKeys[i], IDX_SGP4OUT_OSC_KEP, oscKep);
+ //      Sgp4GetPropOut(pSatKeys[i], IDX_SGP4OUT_MEAN_KEP, meanKep);
+ //      Sgp4GetPropOut(pSatKeys[i], IDX_SGP4OUT_NODAL_AP_PER, nodalApPer);
+
+ //      // Using AstroFunc dll to compute/convert to other propagator output data if needed
+ //      //KepToPosVel(oscKep, pos, vel);
+
+ //      // Print position and velocity
+ //      PrintPosVel(fpOscState, mse, pos, vel);
+
+ //      // Print lat lon height and position
+ //      PrintLLH(fpLLH, mse, llh, pos);
+
+ //      // Print osculating Keplerian elements
+ //      PrintOscEls(fpOscElem,  mse, oscKep);
+
+ //      // Print mean Keplerian elements
+ //      PrintMeanEls(fpMeanElem, mse, meanKep);
+
+ //      // Print nodal period, apogee, perigee, and others
+ //      meanMotion = AToN(meanKep[0]);
+ //      PrintNodalApPer(fpnodalApPer, mse, meanMotion, nodalApPer);
+
+ //      // Height is below 100km - Skip the satellite
+ //      if (llh[2] < 100.0) 
+ //      {
+ //         if (llh[2] < 0)
+ //            sprintf(errMsg, "Warning: Decay condition. Distance from the Geoid (Km) = %10.3lf\n", llh[2]);
+ //         else
+ //            sprintf(errMsg, "Warning: Height is low. HT (Km) = %10.3lf\n", llh[2]);
+
+ //         // Write error message to files
+ //         fprintf(fpOscState, "%s\n", errMsg);
+ //         fprintf(fpOscElem, "%s\n", errMsg);
+ //         fprintf(fpMeanElem, "%s\n", errMsg);
+ //         fprintf(fpLLH, "%s\n", errMsg);
+ //         fprintf(fpnodalApPer, "%s\n", errMsg);
+
+ //         break; // Move to the next satellite
+ //      }
+ //      */
+ //   }
+
+ //   // Remove this satellite if no longer needed
+ //   if (Sgp4RemoveSat(pSatKeys[i]) != 0)
+ //      ShowMsgAndTerminate();
+ //}
+ //-------------------------------------------------------------------------
+
+ // Remove all the satellites from memory if no longer needed
+ //Sgp4RemoveAllSats();
+
+
+ // Close all output files
+    /*fclose(fpOscState);
+    fclose(fpOscElem);
+    fclose(fpMeanElem);
+    fclose(fpLLH);
+    fclose(fpnodalApPer);
+    */
+
+    // Close log file if needed
+    //CloseLogFile();
+
 
     // Free loaded AstroStd dlls
-    //FreeAstroStdDlls();
+    FreeAstroStdDlls();
 
-    std::cout << "Propogation completed.." << std::endl;
+    //Calculate the whole run time
+    printf("Program completed successfully.\n");
+    finish = clock();
+    start = finish;
+    printf("Total run time = %10.2lf seconds.\n\n\n\n", (double)(finish - start) / CLOCKS_PER_SEC);
+
+
+    for (int i = 1440; i < 1450; i++) // Check sat positions sample
+    { 
+        printf("%s, %d, %lf, %lf, %lf\n", sat_positions[i].satName, sat_positions[i].mse, sat_positions[i].llh[0], sat_positions[i].llh[1], sat_positions[i].llh[2]);
+    }
+
+    sat_pos_st* searchedSatData = (sat_pos_st*)malloc(sizeof(sat_pos_st) * numSats * 1440);
 
     point_st* region = (point_st*)malloc(sizeof(point_st) * 4);
 
-    /* Test case1 */
-    /*region[0].latitude = -4141.927695967769 + 500;// 16.66673;
-    region[0].longitude = 2003.6766308399845 + 500;//103.58196;
-
-    region[1].latitude = -4141.927695967769 + 500;//69.74973;
-    region[1].longitude = 2003.6766308399845 - 500;//-120.64459;
-
-    region[2].latitude = -4141.927695967769 - 500;//-21.09096;
-    region[2].longitude = 2003.6766308399845 - 500;//-119.71009;
-
-    region[3].latitude = -4141.927695967769 - 500;//-31.32309;
-    region[3].longitude = 2003.6766308399845 + 500;//-147.79778;
-    *//* End of test case1 */
-
-
-
-    /* Test case 2 */
-    /*region[0].latitude = 41.791 + 10;// 16.66673;
-    region[0].longitude = 16.4926 + 10;//103.58196;
-
-    region[1].latitude = 41.791 + 10;//69.74973;
-    region[1].longitude = 16.4926 - 10;//-120.64459;
-
-    region[2].latitude = 41.791 - 10;//-21.09096;
-    region[2].longitude = 16.4926 - 10;//-119.71009;
-
-    region[3].latitude = 41.791 - 10;//-31.32309;
-    region[3].longitude = 16.4926 + 10;//-147.79778;*/
-    /* End of test case2 */
-
-    std::cout << "Enter region to search: " << std::endl;
-
-    //for (int k = 0; k < 4; k++)
-    {
+    /* {
         std::cout << "Enter latitude and longitude for point 1 " << std::endl;
         std::cin >> region[0].latitude;
         std::cin >> region[0].longitude;
@@ -242,49 +603,43 @@ int main() {
         std::cin >> region[3].longitude;
 
     }
+    */
 
-    /*for (int i = 0; i < 10; i++)
-    {
-        std::cout << "sat pos: " <<i << ": " << sat_positions[i].L[0] << " " << sat_positions[i].L[1] << " " << sat_positions[i].L[2] << std::endl;
-    }*/
+    /* Test case1 */
+    /*region[0].latitude = -4141.927695967769 + 500;// 16.66673;
+    region[0].longitude = 2003.6766308399845 + 500;//103.58196;
 
+    region[1].latitude = -4141.927695967769 + 500;//69.74973;
+    region[1].longitude = 2003.6766308399845 - 500;//-120.64459;
 
-    // To store the positions that falls inside the user defined region
-    sat_pos_st* searchedSatData = (sat_pos_st*)malloc(sizeof(sat_pos_st) * numSats * 1440); 
-    unsigned int* numSatInsideRegion = (unsigned int*)malloc(sizeof(unsigned int)); // Will store the total count of satellite positions inside the user defined region
+    region[2].latitude = -4141.927695967769 - 500;//-21.09096;
+    region[2].longitude = 2003.6766308399845 - 500;//-119.71009;
 
-    /*std::cout << "Calling search kernel.." << std::endl;
-    unsigned int resultCount = searchSatellites(sat_positions, numSats, 1440, searchedSatData, region, numSatInsideRegion); // Helper function to call the kernel
-
-    std::cout << "Gpu Results: " << resultCount << std::endl;
-    for (int i = 0; i < 20; i++)
-    {
-        std::cout << "Gpu searched: " <<  searchedSatData[i].idx << std::endl;
-    }*/
-
-    /*for (int i = 0; i < *numSatInsideRegion; i++)
-    {
-        std::cout << "Searched Sat id: " << searchedSatData[i].idx << std::endl;
-
-    }*/
-
-    /*********************************************************************/
-    /*********************************************************************/
-    /*********************************************************************/
-    //return 0;
-
-    std::cout << "Cpu Results: " << std::endl;
+    region[3].latitude = -4141.927695967769 - 500;//-31.32309;
+    region[3].longitude = 2003.6766308399845 + 500;//-147.79778;*/
+    //* End of test case1 */
 
 
 
-    // Define the point to check
-//    Point point(-4141.927695967769, 2003.6766308399845); 
-    Point point(41.791, 16.4926);
+    /* Test case 2 */
+    region[0].latitude = 41.791 + 10;// 16.66673;
+    region[0].longitude = 16.4926 + 10;//103.58196;
+
+    region[1].latitude = 41.791 + 10;//69.74973;
+    region[1].longitude = 16.4926 - 10;//-120.64459;
+
+    region[2].latitude = 41.791 - 10;//-21.09096;
+    region[2].longitude = 16.4926 - 10;//-119.71009;
+
+    region[3].latitude = 41.791 - 10;//-31.32309;
+    region[3].longitude = 16.4926 + 10;//-147.79778;*/
+    /* End of test case2 */
 
 
-    int insideCount = 0;
 
-    for (int i = 0; i < numSats * 1440; i++)
+    int insideCount = 0; // Count of satellite positions inside the user defined region
+
+    for (int i = 0; i < 1440 * numSats; i++)
     {
         int numVertices = 4;//region1.vertices.size();
         bool inside = false;
@@ -303,8 +658,19 @@ int main() {
         if (inside)
         {
             //TleGetField(pSatKeys[i], 1, satName);
-            searchedSatData[insideCount].idx = i;
-            searchedSatData[insideCount].L[0] = sat_positions[i].L[0];
+            searchedSatData[insideCount].idx = sat_positions[i].idx;
+            searchedSatData[insideCount].mse = sat_positions[i].mse;
+
+            int k = 0;
+            for (k = 0; k < sizeof(sat_positions[i].satName); k++) // Copy satellite name to searched satepositions structure
+            {
+                searchedSatData[i].satName[k] = sat_positions[i].satName[k];
+
+            }
+            searchedSatData[i].satName[k] = '\0'; // String termination
+
+
+            /*searchedSatData[insideCount].L[0] = sat_positions[i].L[0];
             searchedSatData[insideCount].L[1] = sat_positions[i].L[1];
             searchedSatData[insideCount].L[2] = sat_positions[i].L[2];
 
@@ -313,8 +679,8 @@ int main() {
             searchedSatData[insideCount].V[2] = sat_positions[i].V[2];
             
             searchedSatData[insideCount].d50UTC = sat_positions[i].d50UTC;
+            */
 
-            
             //std::cout << "region is inside" << std::endl;
             insideCount++;
 
@@ -323,50 +689,111 @@ int main() {
         {
             //std::cout << "Region is outside" << std::endl;
         }
-    }
-    std::cout << "cpu count: " << insideCount << std::endl;
-    
-    
-    /*for (int i = 80; i < 90; i++)
-    {
-        std::cout << searchedSatData[i].idx << std::endl;
-    }*/
 
-    FILE* outFile;
-    outFile = FileOpen("Positions.txt", "wt");
+       
+
+
+
+    }
+
+
+    //printf("SAT POSITION: %d , %s \n", searchedSatData[104238].idx, sat_positions[366094].satName );
+    //printf("SATNAME[104238]: %s\n", satllites[8450]);
+
+    printf("Number of satellites posiitions found inside the region: %d\n", insideCount);
+
+    for (int i = 1440; i < 1450; i++) // Check searched sat positions sample
+    {
+        printf("Idx: %d, %s, %d\n", searchedSatData[i].idx , satllites[searchedSatData[i].idx].satName, searchedSatData[i].mse);
+
+    }
+
+    FILE* outFile2;
+    outFile2 = FileOpen("Positions.txt", "wt");
 
     printf("File opened for writing\n");
 
+    fprintf(outFile2, "%s  %s  %s  %s  %s  %s\n", "Index", "SatName", "MSE", "Latitude", "Longitude", "Altitude");
+
+
     for (int i = 0; i < insideCount; i++)
     {
-        //printf("%d\n", insideCount);
-        //int idx = searchedSatData[insideCount].idx;
-        
-        //int satIdx = sat_positions[idx].idx;
-        //char * satName = (char*)malloc(sizeof(char) * 512);
-        //TleGetField(pSatKeys[satIdx], 1, satName);
 
-        fprintf(outFile, "%d %lf %lf %lf %lf %lf %lf %lf\n\n", i, searchedSatData[i].d50UTC, sat_positions[i].L[0], sat_positions[i].L[1], sat_positions[i].L[2], sat_positions[i].V[0], sat_positions[i].V[1], sat_positions[i].V[2]);
-    
+        fprintf(outFile2, "%d %s %d %lf %lf %lf \n\n", i, satllites[searchedSatData[i].idx].satName, searchedSatData[i].mse, searchedSatData[i].llh[0], searchedSatData[i].llh[1], searchedSatData[i].llh[2]);
+
     }
 
-    TleRemoveAllSats();   // remove all loaded TLEs from memory
-    Sgp4RemoveAllSats();  // remove all initialized TLEs from memory
+    printf("Results written to Positions.txt\n\n");
+    finish = clock();
+    printf("Search completed in  %10.2lf seconds.\n\n\n\n", (double)(finish - start) / CLOCKS_PER_SEC);
+
+    exit(0);
+}
 
 
-    free(pSatKeys);
+//void DoThread(parameters* para)
+unsigned __stdcall DoThread(parameters* para)
+{
+    int i, errCode;
+    double mse, ds50UTC;
 
-    // Free loaded AstroStd dlls
-    FreeAstroStdDlls();
-    
-    return 0;
+    double
+        pos[3],           //Position (km)
+        vel[3],           //Velocity (km/s)
+        llh[3];           // Latitude(deg), Longitude(deg), Height above Geoid (km)
 
-    
+    char line1[80];
+    char line2[80];
 
+    //printf("Start idx = %d    End idx = %d\n", para->start, para->stop);
+
+    // Loop through all the minute-since-epoch time steps
+    for (int mseInt = 0 ,mse = para->startTime; mse <= para->stopTime; mse += para->stepSize, mseInt++)
+    {
+        // Loop through all the TLEs in the input file
+        for (i = para->start; i < para->stop; i++)
+        {
+            errCode = Sgp4PropMse(para->satKeys[i], mse, &ds50UTC, pos, vel, llh);
+
+            sat_positions[i * 1440 + (int)mseInt].llh[0] = llh[0]; // Copy lat long alt to corresponding satellite position
+            sat_positions[i * 1440 + (int)mseInt].llh[1] = llh[1];
+            sat_positions[i * 1440 + (int)mseInt].llh[2] = llh[2];
+
+            sat_positions[i * 1440 + (int)mseInt].mse = mseInt;
+
+            sat_positions[i * 1440 + (int)mseInt].idx = i; // Index value for identifying satellite
+
+
+            int k = 0;
+            for (k = 0; k < sizeof(satllites[i].satName); k++) // Copy satellite name to satepositions structure
+            {
+                sat_positions[i * 1440 + (int)mseInt].satName[k] = satllites[i].satName[k];
+
+            }
+            sat_positions[i * 1440 + (int)mseInt].satName[k] = '\0'; // String termination
+            
+            
+            /*TleGetLines(para->satKeys[i], line1, line2); // This takes too much time
+            std::string tleLine1(line1);
+            std::string satNumStr = tleLine1.substr(2, 5);
+            sat_positions[i].satName[0] = satNumStr[0];
+            sat_positions[i].satName[1] = satNumStr[1];
+            sat_positions[i].satName[2] = satNumStr[2];
+            sat_positions[i].satName[3] = satNumStr[3];
+            sat_positions[i].satName[4] = satNumStr[4];
+            sat_positions[i].satName[5] = '\0'; // Null character for string termination*/
+            
+            //errCode = Sgp4PropMseQuick(para->satKeys[i], para->satPtrs[i], mse, pos, vel);
+        }
+    }
+
+    //printf("Thread finished\n");
+    _endthreadex(0);
+    return(0);
 }
 
 // Load all the dlls being used in the program
-void LoadAstroStdDlls()
+void LoadAstroStdDlls(const char* libPath)
 {
     // Load MainDll dll
     LoadDllMainDll();
@@ -409,3 +836,79 @@ void FreeAstroStdDlls()
     // Free Sgp4Prop dll
     FreeSgp4PropDll();
 }
+
+
+// Print header for the output files
+void PrintHeader(FILE* fp, char* infoStr, char* inFile,
+    double startTime, double stopTime, double stepSize)
+{
+
+    fprintf(fp, "%s\n\n\n", infoStr);
+    fprintf(fp, "%s\n", "EPHEMERIS GENERATED BY SGP4 USING THE WGS-72 EARTH MODEL");
+    fprintf(fp, "%s\n", "COORDINATE FRAME=TRUE EQUATOR AND MEAN EQUINOX OF EPOCH");
+    fprintf(fp, "%s\n\n", "USING THE FK5 MEAN OF J2000 TIME AND REFERENCE FRAME");
+    fprintf(fp, "%s%s\n", "INPUT FILE = ", inFile);
+    fprintf(fp, "%s%14.4f%s\n", "Start Time = ", startTime, " min from epoch");
+    fprintf(fp, "%s%14.4f%s\n", "Stop Time  = ", stopTime, " min from epoch");
+    fprintf(fp, "%s%14.4f%s\n\n\n", "Step size  = ", stepSize, " min");
+
+}
+
+
+// Print position and velocity vectors
+void PrintPosVel(FILE* fp, double mse, double* pos, double* vel)
+{
+    fprintf(fp, " %17.7f%17.7f%17.7f%17.7f%17.7f%17.7f%17.7f\n",
+        mse, pos[0], pos[1], pos[2], vel[0], vel[1], vel[2]);
+
+}
+
+
+
+// Print osculating Keplerian elements
+void PrintOscEls(FILE* fp, double mse, double* oscKep)
+{
+    double trueAnomaly = CompTrueAnomaly(oscKep);
+
+    fprintf(fp, " %17.7f%17.7f%17.7f%17.7f%17.7f%17.7f%17.7f\n",
+        mse, oscKep[0], oscKep[1], oscKep[2], oscKep[4], oscKep[5], trueAnomaly);
+
+}
+
+
+// Print mean Keplerian elements
+void PrintMeanEls(FILE* fp, double mse, double* meanKep)
+{
+    double meanMotion = AToN(meanKep[0]);
+
+    fprintf(fp, " %17.7f%17.7f%17.7f%17.7f%17.7f%17.7f%17.7f\n",
+        mse, meanMotion, meanKep[1], meanKep[2], meanKep[4], meanKep[5], meanKep[3]);
+
+}
+
+
+// Print geodetic latitude longitude altitude and position vector
+void PrintLLH(FILE* fp, double mse, double* llh, double* pos)
+{
+    fprintf(fp, " %17.7f%17.7f%17.7f%17.7f%17.7f%17.7f%17.7f\n",
+        mse, llh[0], llh[1], llh[2], pos[0], pos[1], pos[2]);
+
+}
+
+
+// Print nodal perdiod, apogee, perigee
+void PrintNodalApPer(FILE* fp, double mse, double n, double* nodalApPer)
+{
+
+    fprintf(fp, " %17.7f%17.7f%17.7f%17.7f%17.7f%17.7f%17.7f\n",
+        mse,
+        nodalApPer[0],
+        (1440.0 / nodalApPer[0]),
+        n,
+        1440.0 / n,
+        nodalApPer[1],
+        nodalApPer[2]);
+}
+
+
+

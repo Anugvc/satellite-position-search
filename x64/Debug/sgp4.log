@@ -1,0 +1,36 @@
+﻿  main.cpp
+C:\Users\anugr\source\repos\sgp4\main.cpp(318,12): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'unsigned __int64'
+  C:\Users\anugr\source\repos\sgp4\main.cpp(318,12):
+  consider using '%zd' in the format string
+  
+C:\Users\anugr\source\repos\sgp4\main.cpp(357,16): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'satellite_st'
+C:\Users\anugr\source\repos\sgp4\main.cpp(375,28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\anugr\source\repos\sgp4\main.cpp(366,43): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\anugr\source\repos\sgp4\main.cpp(121,11): warning C4101: 'fpMeanElem': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(161,9): warning C4101: 'pos': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(166,9): warning C4101: 'nodalApPer': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(120,11): warning C4101: 'fpOscElem': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(149,12): warning C4101: 'meanMotion': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(131,24): warning C4101: 'outFile': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(163,9): warning C4101: 'llh': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(123,11): warning C4101: 'fpnodalApPer': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(122,11): warning C4101: 'fpLLH': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(119,11): warning C4101: 'fpOscState': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(139,11): warning C4101: 'errMsg': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(168,16): warning C4101: 'para1': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(165,9): warning C4101: 'oscKep': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(131,38): warning C4101: 'outputFileName': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(162,9): warning C4101: 'vel': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(148,12): warning C4101: 'mse': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(144,11): warning C4101: 'errCode': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(168,23): warning C4101: 'para2': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(164,9): warning C4101: 'meanKep': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(148,17): warning C4101: 'ds50UTC': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(142,11): warning C4101: 'line2': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(141,11): warning C4101: 'line1': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(750,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\anugr\source\repos\sgp4\main.cpp(750,83): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\anugr\source\repos\sgp4\main.cpp(737,12): warning C4101: 'mse': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(745,10): warning C4101: 'line2': unreferenced local variable
+C:\Users\anugr\source\repos\sgp4\main.cpp(744,10): warning C4101: 'line1': unreferenced local variable
+  sgp4.vcxproj -> C:\Users\anugr\source\repos\sgp4\x64\Debug\sgp4.exe
